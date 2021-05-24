@@ -14,7 +14,7 @@ public class Member {
 		this.hasBook = hasBook;
 	}
 	
-	public void printMyName() {
+	public void printMyInfo() {
 		System.out.println("이름 : " + this.name);
 		System.out.println("나이 : " + this.age + "살");
 		System.out.println("키 : " + this.height + "cm");
@@ -23,7 +23,7 @@ public class Member {
 	
 	public static void main(String[] args) {
 		Member member = new Member("채호연", 10, 100.0, true);
-		member.printMyName();
+		member.printMyInfo();
 	}
 	
 }

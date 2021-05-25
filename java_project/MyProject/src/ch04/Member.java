@@ -9,8 +9,10 @@ public class Member {
 	public void checkFluVaccine(int birthYear) {
 		int age = curYear - birthYear + 1;
 		if ((age < 15) && (age >= 65)) {
+			System.out.println("현재 나이 " + age + "살은");
 			System.out.println("무료예방접종이 가능합니다.");
 		} else {
+			System.out.println("현재 나이 " + age + "살은");
 			System.out.println("무료접종 대상이 아닙니다.");
 		}
 	}
@@ -19,11 +21,13 @@ public class Member {
 		int age = curYear - birthYear + 1;
 		if (age >= 20) {
 			if (curYear % 2 == birthYear % 2) {
+				System.out.println("현재 나이 " + age + "살은");
 				System.out.println("무료건강검진이 가능합니다.");
 				if (age >= 40) {
 					System.out.println("암 검사도 무료로 가능합니다.");
 				}
 			} else {
+				System.out.println("현재 나이 " + age + "살은");
 				System.out.println("무료건강검진 대상이 아닙니다.");
 			}
 		} else {
@@ -44,17 +48,15 @@ public class Member {
 			System.out.print("태어난 연도를 입력해주세요(0 입력시 종료) : ");
 			int birthYear = getIntInput(scanner);
 			
-			System.out.println(2022 - birthYear);
-			
 			if (birthYear == 0) {
 				break;
 			}
 			
-			System.out.println("---------독감예방 접종---------");
+			System.out.println("---------독감예방 접종---------\n");
 			member.checkFluVaccine(birthYear);
 			System.out.println();
 			
-			System.out.println("---------건강검진 대상---------");
+			System.out.println("---------건강검진 대상---------\n");
 			member.checkMeicalCheck(birthYear);
 			System.out.println();
 		}

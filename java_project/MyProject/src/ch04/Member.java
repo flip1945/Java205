@@ -1,14 +1,15 @@
 package ch04;
 
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Member {
 	
-	private static int curYear = 2021;
+	private int curYear = Calendar.getInstance().get(Calendar.YEAR);
 	
 	public void checkFluVaccine(int birthYear) {
 		int age = curYear - birthYear + 1;
-		if ((age < 15) || (age >= 65)) {
+		if (age < 15 || age >= 65) {
 			System.out.println("현재 나이 " + age + "살은");
 			System.out.println("무료예방접종이 가능합니다.");
 		} else {
@@ -34,10 +35,6 @@ public class Member {
 			System.out.println("20세 이상만 무료로 건강검진이 가능합니다.");
 		}
 	}
-	
-	public static int getIntInput(Scanner scanner) {
-		return scanner.nextInt();
-	}
 
 	public static void main(String[] args) {
 		
@@ -46,7 +43,7 @@ public class Member {
 		
 		while (true) {
 			System.out.print("태어난 연도를 입력해주세요(0 입력시 종료) : ");
-			int birthYear = getIntInput(scanner);
+			int birthYear = scanner.nextInt();
 			
 			if (birthYear == 0) {
 				break;
@@ -63,7 +60,8 @@ public class Member {
 			member.checkMeicalCheck(birthYear);
 			System.out.println();
 		}
-
+		
+		scanner.close();
 	}
 
 }

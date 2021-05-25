@@ -5,19 +5,19 @@ import java.util.Scanner;
 
 public class Calculator {
 	
-	public int add(int a, int b) {
+	public long add(long a, int b) {
 		return a + b;
 	}
 	
-	public int sub(int a, int b) {
+	public long sub(long a, int b) {
 		return a - b;
 	}
 	
-	public int mul(int a, int b) {
+	public long mul(long a, int b) {
 		return a * b;
 	}
 	
-	public int div(int a, int b) {
+	public double div(double a, int b) {
 		return a / b;
 	}
 	
@@ -45,7 +45,7 @@ public class Calculator {
 		System.out.println("두 숫자의 합 : " + cal.add(a, b));
 		System.out.println("두 숫자의 차 : " + cal.sub(a, b));
 		System.out.println("두 숫자의 곱 : " + cal.mul(a, b));
-		System.out.println("두 숫자의 나누기의 몫 : " + cal.div(a, b));
+		System.out.printf("두 숫자의 나누기: %.2f", cal.div(a, b));
 		System.out.println();
 		
 		System.out.printf("첫 번째 숫자의 원 둘레 : %.02f\n", cal.getCircumference((double)a));

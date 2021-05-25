@@ -15,7 +15,7 @@ public class Member {
 	
 	public void checkMeicalCheck(int birthYear) {
 		int age = curYear - birthYear + 1;
-		if (age > 20) {
+		if (age >= 20) {
 			if (curYear % 2 == birthYear % 2) {
 				System.out.println("무료건강검진이 가능합니다.");
 				if (age >= 40) {
@@ -36,7 +36,7 @@ public class Member {
 		member.checkFluVaccine(2000);
 		member.checkMeicalCheck(2002);
 		
-		member.checkMeicalCheck(1981);
+		member.checkMeicalCheck(1980);
 
 	}
 

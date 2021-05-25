@@ -50,6 +50,9 @@ public class Member {
 			
 			if (birthYear == 0) {
 				break;
+			} else if (birthYear < 0) {
+				System.out.println("올바른 년도를 입력해주세요.");
+				continue;
 			}
 			
 			System.out.println("---------독감예방 접종---------\n");

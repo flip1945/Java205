@@ -8,7 +8,7 @@ public class Member {
 	
 	public void checkFluVaccine(int birthYear) {
 		int age = curYear - birthYear + 1;
-		if ((age < 15) && (age >= 65)) {
+		if ((age < 15) || (age >= 65)) {
 			System.out.println("현재 나이 " + age + "살은");
 			System.out.println("무료예방접종이 가능합니다.");
 		} else {

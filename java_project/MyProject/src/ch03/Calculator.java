@@ -31,6 +31,10 @@ public class Calculator {
 	public static int getIntInput(Scanner scanner) {
 		return scanner.nextInt();
 	}
+	
+	public static int getDoubleInput(Scanner scanner) {
+		return scanner.nextInt();
+	}
 
 	public static void main(String[] args) {
 		Calculator cal = new Calculator();
@@ -46,13 +50,13 @@ public class Calculator {
 		System.out.println("두 숫자의 곱 : " + cal.mul(a, b));
 		System.out.printf("두 숫자의 나누기: %.2f", cal.div(a, b));
 		System.out.println();
-		
-		System.out.printf("첫 번째 숫자의 원 둘레 : %.02f\n", cal.getCircumference((double)a));
-		System.out.printf("첫 번째 숫자의 원 넓이 : %.02f\n", cal.getCircleArea((double)a));
 		System.out.println();
 		
-		System.out.printf("두 번째 숫자의 원 둘레 : %.02f\n", cal.getCircumference((double)b));
-		System.out.printf("두 번째 숫자의 원 넓이 : %.02f\n", cal.getCircleArea((double)b));
+		System.out.print("반지름을 입력해주세요 : ");
+		double r = getDoubleInput(scanner);
+		
+		System.out.printf("원의 둘레는 : %.2f입니다.\n", cal.getCircumference(r));
+		System.out.printf("원의 넓이는 : %.2f입니다.\n", cal.getCircleArea(r));
 	}
 
 }

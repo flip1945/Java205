@@ -1,6 +1,5 @@
 package ch03;
 
-import java.lang.Math;
 import java.util.Scanner;
 
 public class Calculator {

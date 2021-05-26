@@ -47,8 +47,6 @@ public class Student {
 	}
 	
 	public void printScore() {
-		System.out.printf("%s 학생의 총점은 %d점입니다.\n", this.name, getScoreSum());
-		System.out.printf("%s 학생의 평균은 %.2f점입니다.\n", this.name, getScoreAvg());
-		System.out.println();
+		System.out.printf("%s\t%d\t%d\t%d\t%d\t%.2f\n", this.name, this.korScore, this.engScore, this.mathScore, getScoreSum(), getScoreAvg());
 	}
 }

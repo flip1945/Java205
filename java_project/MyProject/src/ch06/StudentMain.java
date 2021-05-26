@@ -3,8 +3,7 @@ package ch06;
 public class StudentMain {
 	
 	public void printSubScore(String subName, int subSum, int length) {
-		System.out.printf("%s 과목의 총점은 %d점입니다.\n", subName, subSum);
-		System.out.printf("%s 과목의 평균은 %.1f점입니다.\n", subName, (double)subSum / length);
+		System.out.printf("[%s 총점 : %d]\t[%s 평균 : %.1f]", subName, subSum, subName, (double)subSum / length);
 		System.out.println();
 	}
 
@@ -17,6 +16,9 @@ public class StudentMain {
 		
 		StudentMain studentMain = new StudentMain();
 		
+		System.out.println("이름\t국어\t영어\t수학\t총점\t평균");
+		System.out.println("---------------------------------------------");
+		
 		for (int i = 0; i < students.length; i++) {
 			students[i] = new Student(studentNames[i], (int)(Math.random() * 101), (int)(Math.random() * 101), (int)(Math.random() * 101));
 		}
@@ -28,6 +30,8 @@ public class StudentMain {
 			
 			students[i].printScore();
 		}
+		
+		System.out.println("---------------------------------------------");
 		
 		studentMain.printSubScore("국어", korSum, students.length);
 		studentMain.printSubScore("영어", engSum, students.length);

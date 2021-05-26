@@ -1,14 +1,16 @@
 package ch07;
 
+import java.util.Calendar;
+
 public class Person {
 	protected String name;
-	protected int age;
 	protected String id;
+	protected int age;
 	
-	public Person(String name, int age, String id) {
+	public Person(String name, String id) {
 		this.name = name;
-		this.age = age;
 		this.id = id;
+		this.age = getAge();
 	}
 
 	public String getName() {
@@ -19,20 +21,21 @@ public class Person {
 		this.name = name;
 	}
 
-	public int getAge() {
-		return age;
-	}
-
-	public void setAge(int age) {
-		this.age = age;
-	}
-
 	public String getId() {
 		return id;
 	}
 
 	public void setId(String id) {
 		this.id = id;
+	}
+	
+	protected int getAge() {
+		int thisYear = Calendar.getInstance().get(Calendar.YEAR);
+		int birthYear = Integer.parseInt(id.substring(0, 2));
+		
+		birthYear += (birthYear < thisYear - 2000) ? 2000 : 1900;
+		
+		return thisYear - birthYear + 1;
 	}
 	
 	public void hi() {

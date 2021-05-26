@@ -3,8 +3,8 @@ package ch07;
 public class Female extends Person {
 	private String hobby;
 
-	public Female(String name, int age, String id, String hobby) {
-		super(name, age, id);
+	public Female(String name, String id, String hobby) {
+		super(name, id);
 		this.hobby = hobby;
 	}
 

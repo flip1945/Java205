@@ -21,15 +21,11 @@ public class Member {
 	}
 	
 	public Member(String name, String phoneNum, String major, int grade, String email) {
-		this.name = name;
-		this.phoneNum = phoneNum;
-		this.major = major;
-		this.grade = grade;
-		this.email = email;
+		this(name, phoneNum, major, grade, email, null, null);
 	}
 
 	public String getName() {
-		return name;
+		return this.name;
 	}
 
 	public void setName(String name) {
@@ -37,7 +33,7 @@ public class Member {
 	}
 
 	public String getPhoneNum() {
-		return phoneNum;
+		return this.phoneNum;
 	}
 
 	public void setPhoneNum(String phoneNum) {
@@ -45,7 +41,7 @@ public class Member {
 	}
 
 	public String getMajor() {
-		return major;
+		return this.major;
 	}
 
 	public void setMajor(String major) {
@@ -53,7 +49,7 @@ public class Member {
 	}
 
 	public int getGrade() {
-		return grade;
+		return this.grade;
 	}
 
 	public void setGrade(int grade) {
@@ -61,7 +57,7 @@ public class Member {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
@@ -69,7 +65,7 @@ public class Member {
 	}
 
 	public String getBirthDay() {
-		return birthDay;
+		return this.birthDay;
 	}
 
 	public void setBirthDay(String birthDay) {
@@ -77,7 +73,7 @@ public class Member {
 	}
 
 	public String getAddress() {
-		return address;
+		return this.address;
 	}
 
 	public void setAddress(String address) {
@@ -89,19 +85,20 @@ public class Member {
 		System.out.println("전화번호 : " + this.phoneNum);
 		System.out.println("전공 : " + this.major);
 		System.out.println("학년 : " + this.grade);
-		System.out.println("email : " + this.email);
-		System.out.println("생일 : " + this.birthDay);
-		System.out.println("주소 : " + this.address);
-		System.out.println();
-	}
-
-	public static void main(String[] args) {
-		Member member1 = new Member("홍길동", "010-1234-5678", "의적", 4, "hong@naver.com", "12.12", "한양");
-		Member member2 = new Member("이순신", "010-4567-0123", "제독", 5, "Lee1234@naver.com");
+		System.out.println("이메일 : " + this.email);
 		
-		member1.printMemberInfo();
-		member2.printMemberInfo();
-
+		if (this.birthDay == null) {
+			System.out.println("생일 : 입력된 데이터가 없습니다.");
+		} else {
+			System.out.println("생일 : " + this.birthDay);
+		}
+		
+		if (this.address == null) {
+			System.out.println("주소 : 입력된 데이터가 없습니다.");
+		} else {
+			System.out.println("주소 : " + this.address);			
+		}
+		System.out.println();
 	}
 
 }

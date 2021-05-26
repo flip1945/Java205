@@ -32,8 +32,9 @@ public class Person {
 	protected int getAge() {
 		int thisYear = Calendar.getInstance().get(Calendar.YEAR);
 		int birthYear = Integer.parseInt(id.substring(0, 2));
+		boolean newCentury = (Integer.parseInt(id.substring(7, 8)) > 2) ? true : false;
 		
-		birthYear += (birthYear <= thisYear - 2000) ? 2000 : 1900;
+		birthYear += (newCentury) ? 2000 : 1900;
 		
 		return thisYear - birthYear + 1;
 	}

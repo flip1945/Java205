@@ -18,7 +18,7 @@ public class Male extends Person {
 	
 	public void hi() {
 		System.out.println("안녕하세요. 저는 " + this.name + "입니다. " + this.age + "살 입니다.");
-		System.out.println("좋아하는 운동은 " + this.sport + "입니다.");
+		System.out.println("저는 남자이고, 좋아하는 운동은 " + this.sport + "입니다.");
 		System.out.println();
 	}
 }

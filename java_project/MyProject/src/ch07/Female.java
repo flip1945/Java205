@@ -7,6 +7,14 @@ public class Female extends Person {
 		super(name, age, id);
 		this.hobby = hobby;
 	}
+
+	public String getHobby() {
+		return this.hobby;
+	}
+
+	public void setHobby(String hobby) {
+		this.hobby = hobby;
+	}
 	
 	public void hi() {
 		System.out.println("안녕하세요. 저는 " + this.name + "입니다. " + this.age + "살 입니다.");

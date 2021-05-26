@@ -1,10 +1,18 @@
 package ch07;
 
 public class Male extends Person {
-	public String sport;
+	private String sport;
 	
 	public Male(String name, int age, String id, String sport) {
 		super(name, age, id);
+		this.sport = sport;
+	}
+
+	public String getSport() {
+		return this.sport;
+	}
+
+	public void setSport(String sport) {
 		this.sport = sport;
 	}
 	

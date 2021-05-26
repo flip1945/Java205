@@ -33,7 +33,7 @@ public class Person {
 		int thisYear = Calendar.getInstance().get(Calendar.YEAR);
 		int birthYear = Integer.parseInt(id.substring(0, 2));
 		
-		birthYear += (birthYear < thisYear - 2000) ? 2000 : 1900;
+		birthYear += (birthYear <= thisYear - 2000) ? 2000 : 1900;
 		
 		return thisYear - birthYear + 1;
 	}

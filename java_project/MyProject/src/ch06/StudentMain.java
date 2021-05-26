@@ -27,13 +27,10 @@ public class StudentMain {
 		students[9] = new Student("백준영", 88, 92, 95);
 		
 		for (int i = 0; i < students.length; i++) {
-			students[i].printScore();
-		}
-		
-		for (int i = 0; i < students.length; i++) {
 			korSum += students[i].getKorScore();
 			engSum += students[i].getEngScore();
 			mathSum += students[i].getMathScore();
+			students[i].printScore();
 		}
 		
 		studentMain.printSubScore("국어", korSum, students.length);

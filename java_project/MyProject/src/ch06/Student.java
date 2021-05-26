@@ -43,7 +43,7 @@ public class Student {
 	}
 	
 	public double getScoreAvg() {
-		return getScoreSum() / 3;
+		return (double)getScoreSum() / 3;
 	}
 	
 	public void printScore() {

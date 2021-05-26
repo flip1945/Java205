@@ -1,12 +1,19 @@
 package ch06;
 
 public class StudentMain {
+	
+	public void printSubScore(String subName, int subSum, int length) {
+		System.out.printf("%s 과목의 총점은 %d점입니다.\n", subName, subSum);
+		System.out.printf("%s 과목의 평균은 %.2f점입니다.\n", subName, (double)subSum / length);
+		System.out.println();
+	}
 
 	public static void main(String[] args) {
 		Student[] students = new Student[10];
 		int korSum = 0;
 		int engSum = 0;
 		int mathSum = 0;
+		StudentMain studentMain = new StudentMain();
 		
 		students[0] = new Student("김철수", 80, 90, 50);
 		students[1] = new Student("김영희", 100, 100, 90);
@@ -20,9 +27,7 @@ public class StudentMain {
 		students[9] = new Student("백준영", 88, 92, 95);
 		
 		for (int i = 0; i < students.length; i++) {
-			System.out.printf("%s 학생의 총점은 %d점입니다.\n", students[i].getName(), students[i].getScoreSum());
-			System.out.printf("%s 학생의 평균은 %.2f점입니다.\n", students[i].getName(), students[i].getScoreAvg());
-			System.out.println();
+			students[i].printScore();
 		}
 		
 		for (int i = 0; i < students.length; i++) {
@@ -31,17 +36,9 @@ public class StudentMain {
 			mathSum += students[i].getMathScore();
 		}
 		
-		System.out.printf("국어 과목의 총점은 %d점입니다.\n", korSum);
-		System.out.printf("국어 과목의 평균은 %.2f점입니다.\n", (double)korSum / students.length);
-		System.out.println();
-		
-		System.out.printf("영어 과목의 총점은 %d점입니다.\n", engSum);
-		System.out.printf("영어 과목의 평균은 %.2f점입니다.\n", (double)engSum / students.length);
-		System.out.println();
-		
-		System.out.printf("수학 과목의 총점은 %d점입니다.\n", mathSum);
-		System.out.printf("수학 과목의 평균은 %.2f점입니다.\n", (double)mathSum / students.length);
-		System.out.println();
+		studentMain.printSubScore("국어", korSum, students.length);
+		studentMain.printSubScore("영어", engSum, students.length);
+		studentMain.printSubScore("수학", mathSum, students.length);
 
 	}
 

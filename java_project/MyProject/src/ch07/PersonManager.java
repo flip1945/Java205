@@ -17,7 +17,10 @@ public class PersonManager {
 		
 		for (Person person : people) {
 			person.hi();
-		}		
+		}
+		
+//		Test
+		System.out.println(((Male)people.get(2)).getSport());
 
 	}
 

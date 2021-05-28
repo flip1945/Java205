@@ -33,7 +33,7 @@ class Box {
 	}
 	
 	public void wrap() {
-		System.out.println("SimpleWrap");		
+		System.out.println("SimpleWrap");
 	}
 }
 
@@ -44,7 +44,7 @@ class PaperBox extends Box {
 	
 	@Override
 	public void wrap() {
-		System.out.println("PaperWrap");		
+		System.out.println("PaperWrap");
 	}
 }
 
@@ -55,6 +55,6 @@ class GoldPaperBox extends PaperBox {
 	
 	@Override
 	public void wrap() {
-		System.out.println("GoldPaperWrap");		
+		System.out.println("GoldPaperWrap");
 	}
 }

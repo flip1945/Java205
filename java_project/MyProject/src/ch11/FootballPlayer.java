@@ -54,11 +54,9 @@ public class FootballPlayer implements Comparable<FootballPlayer> {
 	public boolean equals(Object obj) {
 		boolean result = false;
 		if (obj != null && obj instanceof FootballPlayer) {
-			String objName = ((FootballPlayer)obj).getName();
-			String objTeam = ((FootballPlayer)obj).getTeam();
-			int objAge = ((FootballPlayer)obj).getAge();
+			FootballPlayer player = (FootballPlayer)obj;
 			
-			if (this.name.equals(objName) && this.team.equals(objTeam) && this.age == objAge) {
+			if (this.name.equals(player.getName()) && this.team.equals(player.getTeam()) && this.age == player.getAge()) {
 				result = true;
 			}
 		}
@@ -66,29 +64,20 @@ public class FootballPlayer implements Comparable<FootballPlayer> {
 	}
 
 	@Override
-	public int compareTo(FootballPlayer f) {
-		int comp = 0;
+	public int compareTo(FootballPlayer player) {
 		// 팀으로 비교
-		if (this.team.compareTo(f.getTeam()) > 0) {
-			comp = 1;
-		} else if (this.team.compareTo(f.getTeam()) < 0) {
-			comp = -1;
-		} else { // 팀이 같은 경우
+		int result = this.team.compareTo(player.getTeam());
+		// 팀이 같은 경우
+		if (result == 0) {
 			// 이름으로 비교
-			if (this.name.compareTo(f.getName()) > 0) {
-				comp = 1;
-			} else if (this.name.compareTo(f.getName()) < 0) {
-				comp = -1;
-			} else { // 이름이 같은 경우
-				// 번호순으로 비교
-				if (this.number - f.getNumber() > 0) {
-					comp = 1;
-				} else if (this.number - f.getNumber() < 0) {
-					comp = -1;
-				}
+			result = this.name.compareTo(player.getName());
+			// 이름이 같은 경우
+			if (result == 0) {
+				// 번호로 비교
+				result = this.number - player.getNumber();
 			}
 		}
-		return comp;
+		return result;
 	}
 
 	@Override

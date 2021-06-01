@@ -17,8 +17,11 @@ public class FootballPlayerTree {
 		players.add(new FootballPlayer("정약용", 2, "서울FC", 28));
 		players.add(new FootballPlayer("권 율", 3, "서울FC", 21));
 		players.add(new FootballPlayer("권 민", 4, "서울FC", 29));
-		players.add(new FootballPlayer("손흥민", 5, "서울FC", 25));
 		players.add(new FootballPlayer("손흥민", 8, "서울FC", 25));
+		players.add(new FootballPlayer("손흥민", 5, "서울FC", 25));
+		players.add(new FootballPlayer("홍길동", 10, "수원FC", 22));
+		players.add(new FootballPlayer("손흥민", 8, "수원FC", 25));
+		players.add(new FootballPlayer("손흥민", 1, "수원FC", 25));
 		
 		for(FootballPlayer player : players) {
 			System.out.println(player);

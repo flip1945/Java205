@@ -93,7 +93,7 @@ public class FootballPlayer implements Comparable<FootballPlayer> {
 
 	@Override
 	public String toString() {
-		return "[" + name + ", " + number + "번, " + team + ", " + age + "]";
+		return "[" + team + ", " + name + ", " + number + "번, " + age + "]";
 	}
 
 }

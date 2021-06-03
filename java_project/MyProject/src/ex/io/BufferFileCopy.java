@@ -25,7 +25,7 @@ public class BufferFileCopy {
 			
 			while (readLen == 1024) {
 				readLen = in.read(buf);
-				out.write(buf, 0, readLen);;
+				out.write(buf, 0, readLen);
 				copyByte += readLen;
 			}
 			

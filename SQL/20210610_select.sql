@@ -44,7 +44,7 @@ WHERE SAL BETWEEN 2000 AND 3000;
 -- 1997년에 입사한 사원들의 리스트를 출력
 SELECT *
 FROM EMP
--- WHERE HIREDATE BETWEEN '1981/01/01' AND '1981/12/31'
+--WHERE HIREDATE BETWEEN '1981/01/01' AND '1981/12/31'
 WHERE HIREDATE >= '1981/01/01' AND HIREDATE <= '1981/12/31'
 ORDER BY HIREDATE;
 
@@ -64,4 +64,28 @@ WHERE COMM IN (300, 500, 1400);
 
 SELECT *
 FROM EMP
-WHERE ENAME LIKE 'F%';
+--WHERE ENAME LIKE 'SC%';
+--WHERE ENAME LIKE '%ES';
+WHERE ENAME LIKE 'A%' OR ENAME LIKE '%A';
+
+-- 자리수 패턴 : 칼럼의 값이 자리수가 정해져 있고, 값에 패턴이 있는 경우
+-- 이름에 두 번째 문자에 A를 포함하는 사원의 리스트
+SELECT *
+FROM EMP
+--WHERE ENAME LIKE '_A%';
+--WHERE ENAME LIKE '__A%';
+WHERE ENAME NOT LIKE '__A%';
+
+-- NULL 값을 확인하는 연산자 -> IS NULL, IS NOT NULL
+-- 커미션이 등록되어 있지 않는 사원의 리스트
+SELECT *
+FROM EMP
+--WHERE COMM IS NULL;
+WHERE COMM IS NOT NULL
+ORDER BY COMM;
+
+-- 결과 행의 정렬 : ORDER BY 컬럼 [ASC|DESC]
+-- 급여가 적은 사원부터 출력 : 오름차순 -> ASC
+SELECT *
+FROM EMP
+ORDER BY SAL; -- 정렬의 기본운 오름차순

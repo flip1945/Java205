@@ -20,6 +20,11 @@ WHERE MOD(EMPNO, 2) = 0;
 SELECT ENAME, TO_CHAR(HIREDATE, 'YY') AS "입사 년도", TO_CHAR(HIREDATE, 'MM') AS "입사 월", TO_CHAR(HIREDATE, 'DY') AS "입사 요일"
 FROM EMP;
 
+-- 수정
+
+SELECT ENAME, TO_CHAR(HIREDATE, 'YY.MM, DY') AS "입사 년도/월/요일"
+FROM EMP;
+
 --20. 올해 몇 칠이 지났는지 출력하시오. 현재날짜에서 올해 1월 1일을 뺀 결과를 출력하고 TO_DATE 함수를 사용하여 데이터 형을 일치 시키시오.
 
 SELECT TRUNC(SYSDATE - TO_DATE('2021/01/01')) AS "현재 이번 년도의 일수"

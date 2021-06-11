@@ -92,7 +92,16 @@ SELECT DECODE(DEPTNO, 10, 'ACCOUNTING',
        ) AS LOC,
        COUNT(*) AS "사원 수", ROUND(AVG(SAL)) AS "부서 평균 급여"
 FROM EMP
-GROUP BY DEPTNO;
+GROUP BY DEPTNO
+ORDER BY AVG(SAL);
+
+-- JOIN을 사용해 수정
+
+SELECT DEPT.DNAME, DEPT.LOC, COUNT(*), ROUND(AVG(SAL)) AS "부서 평균 급여"
+FROM EMP JOIN DEPT
+ON EMP.DEPTNO = DEPT.DEPTNO
+GROUP BY DEPT.DEPTNO, DEPT.DNAME, DEPT.LOC
+ORDER BY AVG(SAL);
 
 --31. 업무를 표시한 다음 해당 업무에 대해 부서 번호별 급여 및 부서 10, 20, 30의 급여 총액을 각각 출력하시오. 별칭은 각 job, dno, 부서 10, 부서 20, 부서 30, 총액으로 지정하시오. 
 --( hint. Decode, group by )

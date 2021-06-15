@@ -43,7 +43,8 @@ SELECT ENAME, SAL, DEPTNO
 FROM EMP E1
 WHERE SAL = (SELECT MIN(SAL)
              FROM EMP E2
-             WHERE E1.DEPTNO = E2.DEPTNO);
+             WHERE E1.DEPTNO = E2.DEPTNO)
+ORDER BY DEPTNO;
 
 --48. 담당업무가 ANALYST 인 사원보다 급여가 적으면서 업무가 ANALYST가 아닌 사원들을 표시(사원번호, 이름, 담당 업무, 급여)하시오.
 

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML5 Example Preview</title>
+
+    <link rel="stylesheet" href="css/default.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        body {
+            background-color: #aaa;
+            padding: 20px 0;
+        }
+
+        #main_wrap {
+            width: 815px;
+            border: 1px solid rgb(187, 187, 187);
+            border-radius: 5px;
+            padding: 0 15px;
+
+            background-color: white;
+        }
+
+        header {
+            width: 800px;
+            height: 100px;
+        }
+
+        header > h1 {
+            margin-top: 40px;
+            margin-left: 40px;
+        }
+
+        header > p {
+            margin-top: 5px;
+            margin-left: 40px;
+        }
+
+        nav {
+            width: 800px;
+            height: 50px;
+            line-height: 50px;
+            border-top: 1px solid #aaa;
+            border-bottom: 1px solid #aaa;
+        }
+
+        nav > ul {
+            margin-left: 10px;
+        }
+
+        nav li {
+            float: left;
+            list-style: none;
+            width: 80px;
+        }
+
+        section {
+            width: 600px;
+            float: left;
+        }
+
+        article {
+            border-bottom: 1px solid #aaa;
+            padding-bottom: 15px;
+        }
+
+        article > h1 {
+            margin: 30px 0 0 10px;
+            font-size: 24px;
+        }
+
+        article > p {
+            margin: 10px 10px;
+        }
+
+        article > img {
+            margin: 10px 10px;
+        }
+
+        aside {
+            width: 200px;
+            float: left;
+        }
+
+        aside > h1 {
+            margin: 30px 5px 5px 0;
+        }
+
+        aside li {
+            list-style: none;
+            margin: 5px 10px;
+        }
+
+        #search {
+            float: right;
+            margin-right: 10px;
+        }
+
+        #search > input {
+            margin: 0;
+            border: 1px solid #aaa
+        }
+
+        #search > input[type=text] {
+            width: 140px;
+            height: 28px;
+            margin-right: -6px;
+            border-radius: 10px 0 0 10px;
+        }
+
+        #search > input[type=submit] {
+            width: 60px;
+            height: 30px;
+            border-radius: 0 10px 10px 0;
+            background-color: rgb(185, 185, 185);
+        }
+
+        #content_wrap {
+            width: 800px;
+        }
+
+        .border {
+            border: 1px solid black;
+        }
+
+        .text_center {
+            text-align: center;
+        }
+
+        .align_center {
+            margin: 0 auto;
+        }
+
+        footer {
+            width: 800px;
+            clear: both;
+            color: blue;
+            height: 30px;
+            line-height: 30px;
+            margin-left: 5px;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="main_wrap" class="align_center">
+        <header class="align_center">
+            <h1>HTML5 Example Preview</h1>
+            <p>한빛 아카데미</p>
+        </header>
+    
+        <nav class="align_center">
+            <ul>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaScript</li>
+            </ul>
+    
+            <div id="search">
+                <input type="text">
+                <input type="submit" value="검색">
+            </div>
+        </nav>
+    
+        <div id="content_wrap" class="align_center">
+            <section>
+                <article>
+                    <h1>HTML5 개요와 활용</h1>
+                    <p>2013년 2월 14일</p>
+    
+                    <img src="http://placehold.it/430x280">
+    
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eligendi neque totam, accusamus provident explicabo, obcaecati ipsa numquam sunt reiciendis quod magni sapiente expedita labore iste ad laboriosam architecto saepe.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eligendi neque totam, accusamus provident explicabo, obcaecati ipsa numquam sunt reiciendis quod magni sapiente expedita labore iste ad laboriosam architecto saepe.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eligendi neque totam, accusamus provident explicabo, obcaecati ipsa numquam sunt reiciendis quod magni sapiente expedita labore iste ad laboriosam architecto saepe.</p>
+                </article>
+    
+                <article>
+                    <h1>HTML5 응용과 실습</h1>
+                    <p>2013년 2월 17일</p>
+    
+                    <img src="http://placehold.it/430x280">
+    
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eligendi neque totam, accusamus provident explicabo, obcaecati ipsa numquam sunt reiciendis quod magni sapiente expedita labore iste ad laboriosam architecto saepe.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eligendi neque totam, accusamus provident explicabo, obcaecati ipsa numquam sunt reiciendis quod magni sapiente expedita labore iste ad laboriosam architecto saepe.</p>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima eligendi neque totam, accusamus provident explicabo, obcaecati ipsa numquam sunt reiciendis quod magni sapiente expedita labore iste ad laboriosam architecto saepe.</p>
+                </article>
+            </section>
+    
+            <aside>
+                <h1>카테고리</h1>
+                <ul>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                </ul>
+                <h1>최근 글</h1>
+                <ul>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                    <li>데이터</li>
+                </ul>
+            </aside>
+        </div>
+    
+        <footer class="align_center">
+            Created By Team-HeXagon
+        </footer>
+    </div>
+</body>
+</html>

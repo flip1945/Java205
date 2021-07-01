@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Overflow</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .wrap {
+            width: 600px;
+            height: 350px;
+            background-color: lightgoldenrodyellow;
+
+            position: relative;
+        }
+
+        .circle {
+            width: 80px;
+            height: 80px;
+            border: 1px solid gray;
+            border-radius: 50%;
+
+            background-image: url(../mini.jpg);
+            background-size: contain;
+
+            position: absolute;
+        }
+
+        #div1 {
+            top: 20px;
+            left: 20px;
+        }
+
+        #div2 {
+            top: 20px;
+            right: 20px;
+        }
+
+        #div3 {
+            bottom: 20px;
+            left: 20px;
+        }
+
+        #div4 {
+            bottom: 20px;
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div id="div1" class="circle"></div>
+        <div id="div2" class="circle"></div>
+        <div id="div3" class="circle"></div>
+        <div id="div4" class="circle"></div>
+    </div>
+</body>
+</html>

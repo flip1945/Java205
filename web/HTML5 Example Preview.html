@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/default.css">
 
     <style>
+        /* 전체 스타일 */
         * {
             margin: 0;
             padding: 0;
@@ -27,6 +28,15 @@
             background-color: white;
         }
 
+        #content_wrap {
+            width: 800px;
+        }
+
+        .align_center {
+            margin: 0 auto;
+        }
+
+        /* 헤더 스타일 설정 */
         header {
             width: 800px;
             height: 100px;
@@ -42,6 +52,7 @@
             margin-left: 40px;
         }
 
+        /* 네비게이션 바 스타일 설정 */
         nav {
             width: 800px;
             height: 50px;
@@ -60,11 +71,13 @@
             width: 80px;
         }
 
+        /* 섹션 스타일 설정 */
         section {
             width: 600px;
             float: left;
         }
 
+        /* 아티클 스타일 설정 */
         article {
             border-bottom: 1px solid #aaa;
             padding-bottom: 15px;
@@ -83,6 +96,7 @@
             margin: 10px 10px;
         }
 
+        /* 어사이드 스타일 설정 */
         aside {
             width: 200px;
             float: left;
@@ -97,6 +111,7 @@
             margin: 5px 10px;
         }
 
+        /* 탐색창 스타일 설정 */
         #search {
             float: right;
             margin-right: 10px;
@@ -121,22 +136,7 @@
             background-color: rgb(185, 185, 185);
         }
 
-        #content_wrap {
-            width: 800px;
-        }
-
-        .border {
-            border: 1px solid black;
-        }
-
-        .text_center {
-            text-align: center;
-        }
-
-        .align_center {
-            margin: 0 auto;
-        }
-
+        /* 푸터 스타일 설정 */
         footer {
             width: 800px;
             clear: both;
@@ -150,26 +150,32 @@
 </head>
 <body>
     <div id="main_wrap" class="align_center">
-        <header class="align_center">
+        <!-- 헤더 영역 -->
+        <header>
             <h1>HTML5 Example Preview</h1>
             <p>한빛 아카데미</p>
         </header>
     
-        <nav class="align_center">
+        <nav>
+            <!-- 네비게이션 리스트 -->
             <ul>
                 <li>HTML5</li>
                 <li>CSS3</li>
                 <li>JavaScript</li>
             </ul>
     
+            <!-- 탐색 창 -->
             <div id="search">
                 <input type="text">
                 <input type="submit" value="검색">
             </div>
         </nav>
-    
-        <div id="content_wrap" class="align_center">
+        
+        <!-- 컨텐츠 영역 -->
+        <div id="content_wrap">
+            <!-- 섹션 영역 -->
             <section>
+                <!-- 아티클 영역 -->
                 <article>
                     <h1>HTML5 개요와 활용</h1>
                     <p>2013년 2월 14일</p>
@@ -193,6 +199,7 @@
                 </article>
             </section>
     
+            <!-- 어사이드 영역 -->
             <aside>
                 <h1>카테고리</h1>
                 <ul>
@@ -212,7 +219,8 @@
             </aside>
         </div>
     
-        <footer class="align_center">
+        <!-- 푸터 영역 -->
+        <footer>
             Created By Team-HeXagon
         </footer>
     </div>

@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&family=Sunflower:wght@500&display=swap');
+
+/* 나눔고딕, 주아, 썬플라워
+font-family: 'Jua', sans-serif;
+font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Sunflower', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: '돋움체', Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: cornsilk;
+}
+
+#main_wrap {
+    /* 10 10 1 1 */
+    width: 778px ; 
+
+    background-color: white;
+
+    border: 1px solid #aaa;
+    border-radius: 5px;
+
+    margin: 10px auto;
+
+    box-shadow: 2px 2px 3px gainsboro;
+
+    padding: 10px;
+}
+
+/* header 영역 */
+header {
+    padding: 20px;
+}
+
+header > h1 {
+    font-size: 2.0em;
+    font-weight: 300;
+}
+
+header > h4 {
+    font-weight: normal;
+}
+
+/* navigation  영역*/
+nav {
+    height: 36px;
+
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+
+    overflow: hidden;
+}
+
+nav > ul {
+    float: left;
+
+    overflow: hidden;
+
+    list-style: none;
+}
+
+nav > ul > li {
+    height: 36px;
+    line-height: 36px;
+
+    float: left;
+    padding: 0 20px;
+}
+
+#search {
+    height: 36px;
+    float: right;
+}
+
+#search > input[type=text] {
+    border: 1px solid #aaa;
+    border-radius: 10px 0 0 10px;
+
+    width: 110px;
+    height: 22px;
+
+    margin-top: 6px;
+    margin-right: -9px;
+
+    padding: 0 10px;
+}
+
+#search > input[type=submit] {    
+    border: 1px solid #aaa;
+    border-radius: 0 10px 10px 0;
+
+    height: 24px;
+
+    margin-right: 5px;
+
+    padding: 0 15px;
+}
+
+/* contents 영역 */
+#content_wrap {
+    overflow: hidden;
+
+    margin-top: 20px;
+}
+
+/* section 영역 */
+
+section {
+    float: left;
+
+    width: 580px;
+    padding: 10px 0 0 10px;
+}
+
+/* aside 영역 */
+
+aside {
+    float: left;
+
+    width: 158px;
+    padding: 0 10px;
+}
+
+aside > h3 {
+    font-size: 120%;
+    margin-top: 20px;
+}
+
+aside > ul {
+    list-style: none;
+}
+
+aside > ul > li {
+    padding-left: 10px;
+    line-height: 180%;
+}
+
+/* footer 영역 */
+footer {
+    padding-left: 10px;
+    height: 30px;
+    line-height: 30px;
+}
+
+/* 공통으로 사용할 클래스 정의 */
+.font_jua {
+    font-family: 'Jua', sans-serif;
+}
+
+.border_bottom_a {
+    border-bottom: 1px solid #aaa;
+}
+
+.margin_bottom_20 {
+    margin-bottom: 20px;
+}
+
+a {
+    color: #333;
+    text-decoration: none;
+}
+
+a:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: 'Sunflower', sans-serif;
+}
+
+.date {
+    color: #aaa;
+}
+
+.post_img {
+    margin: 10px 5px;
+    border: 0px;
+    width: 500px;
+}
+
+.post_content {
+    line-height: 180%;
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-bottom: 15px;
+}

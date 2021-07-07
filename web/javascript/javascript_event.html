@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Event</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        h1 {
+            background-color: greenyellow;
+            text-align: center;
+        }
+
+        h2 {
+            background-color: khaki;
+            text-align: center;
+        }
+    </style>
+
+    <script>
+        window.onload = () => {
+            // 이벤트 적용 : 캐스팅 -> 이벤트 속성에 핸들러를 할당
+            // h1 태그를 캐스팅
+            var header = document.getElementById('btn');
+            // 이벤트 속성에 핸들러 할당
+            header.onclick = () => {
+                alert('click');
+
+                // 이벤트 제거
+                header.onclick = null;
+            };
+
+            document.getElementById('btn1').onclick = function() {
+                // this -> 이벤트가 발생한 객체를 가르킨다.
+                this.style.color = 'white';
+                this.style.backgroundColor = 'black';
+            }
+
+            // 버튼A, 버튼B를 클릭할 때, 클릭 횟수를 화면에서 출력
+            // 버튼과 출력 영역 캐스팅
+            var buttonA = document.getElementById('btnA');
+            var buttonB = document.getElementById('btnB');
+
+            var countA = document.getElementById('cntA');
+            var countB = document.getElementById('cntB');
+
+            // 버튼에 클릭 이벤트를 연결
+            buttonA.onclick = () => {
+                // 카운트를 증가시키고 화면을 갱신
+                countA.innerText = Number(countA.innerText) + 1;
+            };
+
+            // 버튼에 클릭 이벤트를 연결
+            buttonB.onclick = () => {
+                // 카운트를 증가시키고 화면을 갱신
+                countB.innerText = Number(countB.innerText) + 1;
+                
+                // 이벤트 강제 발생
+                buttonA.onclick();
+            };
+
+            // form 태그 캐스팅
+            var form = document.getElementById('myForm');
+            form.onsubmit = () => false;
+
+            // p 태그 캐스팅
+            var p1 = document.getElementById('p1');
+            p1.onclick = function(e) {
+                var event = e || window.event;
+
+                alert('P Click');
+
+                // IE 일 때
+                event.cancelBubble = true;
+                // IE 이외의 브라우저 일 때
+                if (event.stopPropagation) {
+                    event.stopPropagation();
+                }
+            }
+        }
+
+        function mClick() {
+            alert('클릭했어요~~~');
+        }
+
+    </script>
+</head>
+<body>
+    <div style="border: 1px solid black;" onclick="alert('DIV1')">
+        <div style="border: 1px solid green;" onclick="alert('DIV2')">
+            <h1 style="border: 1px solid blue;" onclick="alert('h1')">
+                <p style="border: 1px solid red; width:50%;" id="p1" onclick="alert('P')">클릭하세요</p>
+            </h1>
+        </div>
+    </div>
+
+    <form action="https://www.naver.com" id="myForm" method="POST">
+        i d : <input type="text" name="userID"><br>
+        pw : <input type="password" name="userPW"><br>
+        <input type="submit" value="로그인">
+    </form>
+
+    <button id="btnA">ButtonA</button>
+    <button id="btnB">ButtonB</button>
+
+    <h3>Button A - <span id="cntA">0</span></h3>
+    <h3>Button B - <span id="cntB">0</span></h3>
+
+    <h1 id="btn">Click</h1>
+
+    <h2 onclick="mClick();">클릭!!!</h2>
+
+    <h1 id="btn1">클릭하세요</h1>
+</body>
+</html>

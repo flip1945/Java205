@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>회원관리 프로그램</title>
+
+    <link rel="stylesheet" href="default.css">
+    <script src="manager.js"></script>
+</head>
+<body>
+
+    <!-- 헤더 시작 -->
+    <header>
+        <h1 class="title_font">Member Manager</h1>
+    </header>
+    <!-- 헤더 끝 -->
+
+    <hr>
+
+    <!-- 회원 정보 등록 시작 -->
+    <div id="regFormArea">
+        <h2 class="title_font">회원 정보 등록</h2>
+        <form id="regForm">
+            <table>
+                <tr>
+                    <td>
+                        <label for="userID">아이디</label>
+                        <input type="text" id="userID" placeholder="아이디를 입력해주세요.">
+                        <div class="msg"></div>
+                    </td>
+                    <td>
+                        <label for="userPW">비밀번호</label>
+                        <input type="password" id="userPW" placeholder="비밀번호를 입력해주세요.">
+                        <div class="msg"></div>
+                    </td>
+                    <td>
+                        <label for="rePW">비밀번호 확인</label>
+                        <input type="password" id="rePW" placeholder="비밀번호를 입력해주세요.">
+                        <div class="msg"></div>
+                    </td>
+                    <td>
+                        <label for="userName">이름</label>
+                        <input type="text" id="userName" placeholder="이름을 입력해주세요.">
+                        <div class="msg"></div>
+                    </td>
+                    <td>
+                        <input type="submit" value="등록">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+    <!-- 회원 정보 등록 끝 -->
+
+    <hr>
+
+    <!-- 회원 리스트 시작 -->
+    <div id="listArea">
+        <h2 class="title_font">회원 리스트</h2>
+        <table>
+            <tbody id="list">
+            </tbody>
+        </table>
+    </div>
+    <!-- 회원 리스트 끝 -->
+
+    <hr>
+
+    <!-- 회원 정보 수정 시작 -->
+    <div id="editFormArea">
+        <div id="div_header">
+            <h2 class="title_font">회원 정보 수정</h2>
+            <a href="javascript:editMemberClose()">닫기</a>
+        </div>
+        
+        <hr>
+
+        <form id="editForm">
+            <table>
+                <tr>
+                    <td><label for="editID">아이디(이메일)</label></td>
+                    <td>
+                        <input type="text" id="editID" readonly>
+                        <input type="hidden" id="editIndex">
+                    </td>
+                </tr>
+                <tr>
+                    <td><label for="editPW">비밀번호</label></td>
+                    <td><input type="password" id="editPW" required></td>
+                </tr>
+                <tr>
+                    <td><label for="editRePW">비밀번호 확인</label></td>
+                    <td><input type="password" id="editRePW" required></td>
+                </tr>
+                <tr>
+                    <td><label for="editName">이름</label></td>
+                    <td><input type="text" id="editName"></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="수정">
+                    </td>
+                </tr>
+            </table>
+        </form>        
+    </div>
+    <!-- 회원 정보 수정 끝 -->
+</body>
+</html>

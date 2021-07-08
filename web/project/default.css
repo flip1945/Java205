@@ -1,0 +1,126 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic&family=Sunflower:wght@500&display=swap');
+
+/* 나눔고딕, 주아, 썬플라워
+font-family: 'Jua', sans-serif;
+font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Sunflower', sans-serif; */
+
+/* 기본 설정 */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+hr {
+    border: 0;
+    border-bottom: 1px solid #aaa;
+}
+
+/* 타이틀 폰트 적용 */
+.title_font {
+    font-family: 'Jua', sans-serif;
+}
+
+/* header 역역 */
+header {
+    padding: 20px;
+    /* border-bottom: 1px solid #aaa; */
+}
+
+/* 회원 가입 폼 영역 */
+#regFormArea {
+    padding: 20px 40px;
+}
+
+form label {
+    display: block;
+}
+
+#regForm > table td {
+    width: 200px;
+    padding: 5px;
+}
+
+#regForm input {
+    height: 30px;
+    width: 200px;
+    font-size: 1.2em;
+    padding: 0 3px;
+}
+
+#regForm input[type=submit], #editForm input[type=submit]{
+    width: 100px;
+    height: 56px;
+
+    border: 1px solid #aaa;
+
+    font-size: 1.5em;
+    font-family: 'Jua', sans-serif;
+
+    background-color: greenyellow;
+}
+
+#regForm div.msg {
+    color: red;
+}
+
+/* 회원 리스트 영역 */
+#listArea {
+    padding: 20px 40px;
+}
+
+#listArea > table {
+    margin: 10px 0;
+    width: 600px;
+
+    border-collapse: collapse;
+}
+
+#listArea > table td, #listArea > table th {
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #aaa;
+}
+
+/* 회원 정보 수정 영역 */
+#editFormArea {
+    background-color: lightcyan;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+
+    width: 350px;
+
+    padding: 20px;
+
+    display: none;
+
+    position: absolute;
+    top: 50px;
+    left: 50%;
+    margin-left: -196px;
+}
+
+#editFormArea > #div_header {
+    overflow: hidden;
+    padding-bottom: 5px;
+}
+
+#editFormArea > #div_header > h2 {
+    float: left;
+}
+
+#editFormArea > #div_header > a {
+    float: right;
+}
+
+#editForm > table {
+    width: 100%;
+    margin-top: 15px;
+}
+
+#editForm > table td {
+    padding: 5px 10px;
+    text-align: center;
+}

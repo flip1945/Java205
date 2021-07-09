@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript DOM</title>
+
+    <style>
+        div > img {
+            width: 300px;
+            height: 300px;
+        }
+
+        #banner {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #aaa;
+
+            overflow: hidden;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(() => {
+            // 동적으로 html 요소 생성
+            $('<h1></h1>');
+            $('<h1></h1>').html('Hello~!!!');
+            $('<h1>Hello~!!!</h1>');
+
+            // 요소를 추가 (appendTo)
+            $('<h1></h1>').html('Hello1~!!!').appendTo('body');
+            $('<h1>Hello2~!!!</h1>').appendTo('body');
+
+            $('<img>').attr({
+                src: '../mini2.jpg',
+                width: 200
+            }).appendTo('body');
+
+            // 요소를 추가 (append)
+            var html1 = '<a href="#">test</a>';
+            var html2 = '<p>TEST</p>';
+            var html3 = '<div>DIV-0</div><div>DIV-1</div><div>DIV-2</div><div>DIV-3</div><div>DIV-4</div><div>DIV-5</div>';
+            
+            $('body').append('<h3>Hello~!!! Javascript</h3>');
+            $('body').append(html1, html2, html3, '<hr>');
+            
+            // 배열 생성
+            var links = [
+                {name:'네이버', url:'https://www.naver.com'},
+                {name:'다음', url:'https://www.daum.net'},
+                {name:'카카오', url:'https://www.kakao.com'},
+                {name:'구글', url:'https://www.google.com'}
+            ];
+
+            $('body').append(i => {
+                return '<h3><a href="' + links[i].url + '">' + links[i].name + '</a></h3>';
+            })
+
+            setInterval(() => {
+                $('#banner > img').first().appendTo('#banner');
+            }, 3000);
+        });
+    </script>
+</head>
+<body>
+    <div id="banner">
+        <img src="../mini.jpg" alt="미니언즈1">
+        <img src="../mini2.jpg" alt="미니언즈2">
+        <img src="../img/blt202107010038.800x.0.jpg" alt="">
+    </div>
+</body>
+</html>

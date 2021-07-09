@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery</title>
+    
+    <style>
+        .title {
+            background-color: red;
+            color: white;
+            float: left; 
+        }
+
+        #wrap {
+            overflow: hidden;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+    <script>
+        // $() -> jquery 객체 생성 : 메소드
+        // document 객체 -> jquery 객체로 변환
+        $(document).ready(function() {
+            //$('*').css('color', 'red');
+
+            var value = $('input[type=text]').val();
+            console.log(value);
+            $('input:text').val('안녕하세요.');
+
+            // 5초 후에 select의 선택 항목의 value 값을 확인
+            setTimeout(function () {
+                var selVal = $('select > option:selected').val();
+                console.log(selVal);
+
+                var chk = $('input:checkbox:checked').val();
+                console.log(chk);
+            }, 5000);
+
+            $('table tr:odd').css('background-color', '#ddd');
+            // $('table tr:even').css('background-color', '#ccc');
+            // filter method를 이용해서 탐색
+            $('table tr').filter(':even').css('background-color', '#bbb');
+            $('table tr:first').css('background-color', 'white').css('color', 'red');
+            $('table tr:last').css('background-color', '#fff');
+            
+            // 배열을 다루는 .each() 메소드
+            // $.each(배열원본, callBack(index, value));
+    
+            // 배열 생성
+            var links = [
+                {name:'네이버', url:'https://www.naver.com'},
+                {name:'다음', url:'https://www.daum.net'},
+                {name:'카카오', url:'https://www.kakao.com'},
+                {name:'구글', url:'https://www.google.com'}
+            ];
+    
+            var output = ''
+    
+            $.each(links, function(index, item) {
+                console.log(index, item);
+                output += '<a href="' + item.url + '">' + item.name + '</a>\n';
+            });
+            console.log(output);
+    
+            // console.log($('body').html);
+    
+            // document.body.innerHTML = output;
+            // $('body').html(output);
+            $('#links').html(output);
+    
+            $('h1').each(function(index, item) {
+                console.log(index, item.innerHTML);
+                console.log(index, $(item).html);
+            });
+    
+            $('h1').addClass('title');
+
+            $('h3').filter((index) => {
+                return index % 3 == 0;
+            }).css({
+               backgroundColor: 'black',
+               color: 'white'
+            });
+
+            $('h2').css('background-color', 'orange')
+            .filter(':even').css('color', 'white').end()
+            .filter(':odd').css('color', 'red');
+
+            $('h1').eq(3).css('background-color', 'orange');
+            $('h1').last().css('background-color', 'blue');
+            $('h1').first().css('background-color', 'green');
+
+            $('h1').css('background-color', 'gray').add('h3').css('float', 'left');
+        });
+    </script>
+
+</head>
+<body>
+    <h2>header - 0</h2>
+    <h2>header - 1</h2>
+    <h2>header - 2</h2>
+    <h2>header - 3</h2>
+    <h2>header - 4</h2>
+    <h2>header - 5</h2>
+
+    <h3>header - 0</h3>
+    <h3>header - 1</h3>
+    <h3>header - 2</h3>
+    <h3>header - 3</h3>
+    <h3>header - 4</h3>
+    <h3>header - 5</h3>
+
+    <div id="wrap">
+        <h1>header - 0</h1>
+        <h1>header - 1</h1>
+        <h1>header - 2</h1>
+        <h1>header - 3</h1>
+        <h1>header - 4</h1>
+    </div>
+
+    <div id="links"></div>
+
+    <table border="1">
+        <tr>
+            <th>thead 1</th>
+            <th>thead 2</th>
+        </tr>
+        <tr>
+            <td>tbody 1 - 1</td>
+            <td>tbody 1 - 2</td>
+        </tr>
+        <tr>
+            <td>tbody 2 - 1</td>
+            <td>tbody 2 - 2</td>
+        </tr>
+        <tr>
+            <td>111</td>
+            <td>222</td>
+        </tr>
+        <tr>
+            <td>tfoot 1 - 1</td>
+            <td>tfoot 1 - 2</td>
+        </tr>
+    </table>
+
+    개인정보보호정책 <input type="checkbox" value="ok">
+
+    <select>
+        <option value="21">2021</option>
+        <option value="">2020</option>
+        <option value="">2019</option>
+    </select>
+
+    <input type="text" value="hello~">
+
+    <!-- <h1>안녕하세요.</h1> -->
+</body>
+</html>

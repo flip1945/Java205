@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Banner</title>
+
+    <style>
+        div > img {
+            width: 300px;
+            height: 300px;
+        }
+
+        #banner {
+            width: 300px;
+            height: 300px;
+
+            border: 5px solid #aaa;
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            setInterval(() => {
+                $('#banner > img').first().appendTo('#banner');
+            }, 3000);
+        });
+    </script>
+</head>
+<body>
+    <div id="banner">
+        <img src="../mini.jpg" alt="미니언즈1">
+        <img src="../mini2.jpg" alt="미니언즈2">
+        <img src="../img/blt202107010038.800x.0.jpg" alt="">
+    </div>
+</body>
+</html>

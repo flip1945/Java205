@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript Regexp</title>
+
+    <script>
+        var regExp = /script/;
+        var string = 'Javascript jquery Ajax';
+
+        var result = regExp.test(string);
+
+        // console.log(result);
+
+        // 문자열 타입의 메소드 : split
+        result = string.split(regExp);
+        // console.log(result);
+
+        regExp = /a/gi;
+        var string = 'Javascript \njquery Ajax';
+
+        // 문자열의 해당 패턴을 찾아 특정 문자열로 변경
+        result = string.replace(regExp, '+$&+');
+        // console.log(result);
+
+        var string = 'Javascript \njquery Ajax';
+        // 함수를 이용해서 변경하고자 하는 값을 지정
+        result = string.replace(regExp, function(value) {
+            return '+'+value+'+';
+        });
+        // console.log(result);
+
+        regExp = /[aj]/i;
+        string = 'Javascript jquery Ajax';
+        result = string.replace(regExp, '+$&+');
+        // console.log(result);
+
+        // var string = prompt('소문자와 숫자로 된 단어를 입력해주세요.');
+        // 영문자, 숫자 확인
+        // regExp = /([0-9]|[a-z])/g;
+        // 한글 확인
+        // regExp = /([가-힣])/g;
+        // 이메일 확인
+        // regExp = /\w+@\w+\.\w+/;
+        result = string.replace(regExp, '');
+        if (result.length == 0) {
+            console.log(result, '패턴에 일치하는 문자열');
+        } else {
+            console.log(result, '패턴에 일치하지 않는 문자열');
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="email">
+        <input type="submit">
+    </form>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>JQuery Event2</title>
+
+    <style>
+        div {
+            border: 1px solid #aaa;
+            padding: 10px;
+        }
+
+        h1 {
+            border: 3px solid #000;
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+    <script>
+        $(document).ready(() => {
+            $('#wrap').on('click', 'h1', function() {
+                var length = $('h1').length;
+                var oldHtml = $(this).html();
+
+                $('#wrap').append('<h1>' + length + ' - ' + oldHtml + '</h1>');
+            });
+
+            $('textarea').keyup(function() {
+                var cnt = $(this).val().length;
+                var remain = 150 - cnt;
+
+                console.log(cnt, remain);
+
+                if (cnt > 150) {
+                    alert('자기소개서는 150자까지 작성이 가능합니다.');
+                    var str = $(this).val().substr(0, 150);
+                    $(this).val(str);
+
+                    return false;
+                }
+
+                $('span').text(cnt);
+            });
+
+            $('#myForm').submit(function() {
+                alert('myForm Submit!!!');
+
+                return false;
+            });
+
+            $('#allCheck').change(function() {
+                // 선택 상태를 확인
+                if (this.checked) {
+                    // 체크된 경우 자식들을 모두 체크
+                    $('#checkItem').children().prop('checked', true);
+                } else {
+                    // 체크 해제된 경우 자식들을 모두 체크 해제
+                    $('#checkItem').children().prop('checked', false);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="checkbox" id="allCheck">
+    <label for="allCheck">all 전체 동의</label>
+
+    <div id="checkItem">
+        <input type="checkbox"><label for="">A type</label><br>
+        <input type="checkbox"><label for="">B type</label><br>
+        <input type="checkbox"><label for="">C type</label>
+    </div>
+
+
+    <form id="myForm">
+        <input type="submit">
+    </form>
+
+    <textarea cols="50" rows="10"></textarea>
+    <span>0</span>/150
+
+    <div id="wrap">
+        <h1>header</h1>
+    </div>
+</body>
+</html>

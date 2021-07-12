@@ -39,8 +39,10 @@ form label {
 }
 
 #regForm > table td {
-    width: 200px;
-    padding: 5px;
+    width: 220px;
+    padding: 10px 5px 0 5px;
+    height: 80px;
+    vertical-align: top;
 }
 
 #regForm input {
@@ -73,7 +75,7 @@ form label {
 
 #listArea > table {
     margin: 10px 0;
-    width: 600px;
+    width: 800px;
 
     border-collapse: collapse;
 }

@@ -48,7 +48,7 @@ form label {
 #regForm input {
     height: 30px;
     width: 200px;
-    font-size: 1.2em;
+    font-size: 1.05em;
     padding: 0 3px;
 }
 
@@ -100,7 +100,7 @@ form label {
 
     position: absolute;
     top: 50px;
-    left: 50%;
+    left: 70%;
     margin-left: -196px;
 }
 

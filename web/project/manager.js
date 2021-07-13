@@ -36,18 +36,45 @@ $(document).ready(() => {
     setList();
 
     $('#regForm').submit(function() {
+        // 아이디 공백 입력 확인
         if ($('#userID').val().trim().length < 1) {
             $('#userID + .msg').html('아이디 입력 필수');
             $('#userID + .msg').css('display', 'block');
             return false;
         }
+        
+        // 이메일 입력 확인
+        var email = /\w+@[a-zA-Z]+.[a-zA-Z]+$/g;
+        if (!email.test($('#userID').val().trim())) {
+            $('#userID + .msg').html('이메일 형식 입력 필수');
+            $('#userID + .msg').css('display', 'block');
+            return false;
+        }
 
+        // 비밀번호 공백 입력 확인
         if ($('#userPW').val().trim().length < 1) {
             $('#userPW + .msg').html('비밀번호 입력 필수');
             $('#userPW + .msg').css('display', 'block');
             return false;
         }
 
+        // 비밀번호 숫자 입력 확인
+        var numbers = /[0-9]/g;
+        if (!numbers.test($('#userPW').val())) {
+            $('#userPW + .msg').html('숫자 1글자 이상 포함 필수');
+            $('#userPW + .msg').css('display', 'block');
+            return false;
+        }
+
+        // 비밀번호 특수문자 확인
+        var specialCharacter = /[^a-zA-Z0-9]/g;
+        if (!specialCharacter.test($('#userPW').val())) {
+            $('#userPW + .msg').html('특문 1글자 이상 포함 필수');
+            $('#userPW + .msg').css('display', 'block');
+            return false;
+        }
+
+        // 비밀번호 확인 공백 입력 확인
         if ($('#rePW').val().trim().length < 1) {
             $('#rePW + .msg').html('비밀번호 확인 입력 필수');
             $('#rePW + .msg').css('display', 'block');
@@ -61,9 +88,17 @@ $(document).ready(() => {
             return false;
         }
 
-        // 사용자 이름 정보
-        if ($('#userName').val().trim().length < 1) {
-            $('#userName + .msg').html('이름 입력 필수');
+        // 사용자 이름 공백 입력 확인
+        if ($('#userName').val().trim().length < 2) {
+            $('#userName + .msg').html('이름 두 글자 이상 입력 필수');
+            $('#userName + .msg').css('display', 'block');
+            return false;
+        }
+
+        // 사용자 이름 한글 확인
+        var name = /^[가-힣]+$/g;
+        if (!name.test($('#userName').val())) {
+            $('#userName + .msg').html('올바른 한글 이름 입력 필수');
             $('#userName + .msg').css('display', 'block');
             return false;
         }
@@ -162,8 +197,36 @@ function editMember(index) {
             return false;
         }
 
+        // 비밀번호 숫자 입력 확인
+        var numbers = /[0-9]/g;
+        if (!numbers.test($('#editPW').val())) {
+            alert('비밀번호에 숫자를 1개 이상 입력하세요.');
+            return false;
+        }
+
+        // 비밀번호 특수문자 확인
+        var specialCharacter = /[^a-zA-Z0-9]/g;
+        if (!specialCharacter.test($('#editPW').val())) {
+            alert('비밀번호에 특수문자를 1개 이상 입력하세요.');
+            return false;
+        }
+
+        // 비밀번호, 비밀번호 확인 일치 확인
         if ($('#editPW').val() != $('#editRePW').val()) {
             alert('비밀번호와 비밀번호 확인이 일치하지 않습니다.');
+            return false;
+        }
+
+        // 사용자 이름 공백 입력 확인
+        if ($('#editName').val().trim().length < 2) {
+            alert('이름은 최소 2글자 이상 입력해주세요.');
+            return false;
+        }
+
+        // 사용자 이름 한글 확인
+        var name = /^[가-힣]+$/g;
+        if (!name.test($('#editName').val())) {
+            alert('올바른 한글 이름을 입력해주세요.');
             return false;
         }
 

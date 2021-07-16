@@ -4,7 +4,7 @@
 	<article class="border_bottom_a margin_bottom_20">
 		<h1 class="title">[넘버스]넷제로 20년 앞당긴 SK이노베이션의 '현실적 고민'들</h1>
 		<p class="date">2021-07-02 07:22:37</p>
-		<img src="../img/blt202107010038.800x.0.jpg" alt="김건북극곰"
+		<img src="/First-Web/img/blt202107010038.800x.0.jpg" alt="김건북극곰"
 			class="post_img">
 		<p class="post_content">전 세계가 '이산화탄소와 전쟁' 중입니다. 이산화탄소와 아산화질소 등
 			온실가스(GHGs)의 농도가 증가하면서 온실효과가 발생해 지구 온난화가 발생하고 있죠. 경영계에 따르면 인류에게 주어진
@@ -20,7 +20,7 @@
 	<article class="border_bottom_a">
 		<h1 class="title">[넘버스]넷제로 20년 앞당긴 SK이노베이션의 '현실적 고민'들</h1>
 		<p class="date">2021-07-02 07:22:37</p>
-		<img src="../img/blt202107010038.800x.0.jpg" alt="김건북극곰"
+		<img src="/First-Web/img/blt202107010038.800x.0.jpg" alt="김건북극곰"
 			class="post_img">
 		<p class="post_content">전 세계가 '이산화탄소와 전쟁' 중입니다. 이산화탄소와 아산화질소 등
 			온실가스(GHGs)의 농도가 증가하면서 온실효과가 발생해 지구 온난화가 발생하고 있죠. 경영계에 따르면 인류에게 주어진

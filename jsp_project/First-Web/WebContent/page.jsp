@@ -16,4 +16,10 @@
 	<%@ include file="include/shopping.jsp" %>
 </div>
 </body>
+
+	<jsp:include page="footer.jsp">
+		<jsp:param name="email" value="test@gmail.com"/>
+		<jsp:param name="tel" value="010-0000-0000"/>
+	</jsp:include>
 </html>
+

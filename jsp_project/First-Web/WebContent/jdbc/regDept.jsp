@@ -1,39 +1,36 @@
+<%@page import="jdbc.util.JdbcUtil"%>
+<%@page import="dept.domain.Dept"%>
+<%@page import="dept.dao.DeptDao"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
 <%
-	// 1. 사용자가 입력한 데이터를 받고
+	// 사용자가 입력한 데이터를 받고
 	request.setCharacterEncoding("utf-8");
 
 	String deptno = request.getParameter("deptno");
 	String dname = request.getParameter("dname");
 	String loc = request.getParameter("loc");
 	
-	String sqlInsert = "insert into dept values(?, ?, ?)";
-	
 	int resultCnt = 0;
-
-	// 2. DB 처리 : insert
-	try (Connection conn = ConnectionProvider.getConnection();
-		 PreparedStatement pstmt = conn.prepareStatement(sqlInsert);) {
-		Class.forName("com.mysql.cj.jdbc.Driver");
-
-		// PreparedStatement
-		pstmt.setInt(1, Integer.parseInt(deptno));
-		pstmt.setString(2, dname);
-		pstmt.setString(3, loc);
-		
-		resultCnt = pstmt.executeUpdate();
-	} catch (Exception e) {
-		
-	}
 	
-	// 3. dept_list.jsp 이동 처리(sendRedirect, js의 a태그 이용)
-	// response.sendRedirect("dept_list.jsp");
+	Connection conn = null;
+	DeptDao dao = null;
+
+	// DB 처리 : insert
+	try {
+		conn = ConnectionProvider.getConnection();
+		dao = DeptDao.getInstance();
+		
+		resultCnt = dao.insertDept(conn, new Dept(Integer.parseInt(deptno), dname, loc));
+	} catch (Exception e) {
+		e.printStackTrace();
+	} finally {
+		JdbcUtil.close(conn);
+	}
 	
 	if (resultCnt > 0) {
 		%>

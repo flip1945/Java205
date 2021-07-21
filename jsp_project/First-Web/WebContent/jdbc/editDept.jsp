@@ -1,3 +1,7 @@
+<%@page import="jdbc.util.JdbcUtil"%>
+<%@page import="dept.domain.Dept"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="dept.dao.DeptDao"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.PreparedStatement"%>
@@ -6,35 +10,27 @@
     pageEncoding="UTF-8"%>
 
 <%
-	// 1. 사용자가 입력한 데이터를 받고
 	request.setCharacterEncoding("utf-8");
 
 	String deptno = request.getParameter("deptno");
 	String dname = request.getParameter("dname");
 	String loc = request.getParameter("loc");
 	
-	String sqlInsert = "update dept set dname=?, loc=? where deptno=?";
-	
 	int resultCnt = 0;
-
-	// 2. DB 처리 : update
-	try (Connection conn = ConnectionProvider.getConnection();
-		 PreparedStatement ps = conn.prepareStatement(sqlInsert);){
-		
-		Class.forName("com.mysql.cj.jdbc.Driver");
 	
-		// PreparedStatement
-		ps.setString(1, dname);
-		ps.setString(2, loc);
-		ps.setInt(3, Integer.parseInt(deptno));
+	Connection conn = null;
+	DeptDao dao = null;
+	
+	try {
+		conn = ConnectionProvider.getConnection();
+		dao = DeptDao.getInstance();
 		
-		resultCnt = ps.executeUpdate();
-	} catch (Exception e) {
-		
+		resultCnt = dao.updateDept(conn, new Dept(Integer.parseInt(deptno), dname, loc));
+	} catch (SQLException e) {
+		e.printStackTrace();
+	} finally {
+		JdbcUtil.close(conn);
 	}
-	
-	// 3. dept_list.jsp 이동 처리(sendRedirect, js의 a태그 이용)
-	// response.sendRedirect("dept_list.jsp");
 	
 	if (resultCnt > 0) {
 		%>

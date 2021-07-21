@@ -1,6 +1,8 @@
+<%@page import="jdbc.util.JdbcUtil"%>
+<%@page import="dept.dao.DeptDao"%>
+<%@page import="java.sql.SQLException"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.PreparedStatement"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -13,19 +15,22 @@
 	String sqlInsert = "delete from dept where deptno=?";
 	
 	int resultCnt = 0;
-
-	// 2. DB 처리 : update
-	try (Connection conn = ConnectionProvider.getConnection();
-		 PreparedStatement pstmt = conn.prepareStatement(sqlInsert);){
-		
-		Class.forName("com.mysql.cj.jdbc.Driver");
 	
-		// PreparedStatement
-		pstmt.setInt(1, Integer.parseInt(deptno));
+	Connection conn = null;
+	DeptDao dao = null;
+
+	// DB 처리 : update
+	try {
+		conn = ConnectionProvider.getConnection();
+		dao = DeptDao.getInstance();
 		
-		resultCnt = pstmt.executeUpdate();
+		resultCnt = dao.deleteDept(conn, Integer.parseInt(deptno));
+	} catch (SQLException e) {
+		e.printStackTrace();
 	} catch (Exception e) {
-		
+		e.printStackTrace();
+	} finally {
+		JdbcUtil.close(conn);
 	}
 	
 	// 결과 반환

@@ -6,10 +6,24 @@ public class Member {
 	private String id;
 	private String pw;
 	private String name;
+	private String regDate;
 	
 	// beans 클래스는 기본 생성자 필수
 	public Member() {}
-
+	
+	public Member(String id, String pw, String name) {
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+	}
+	
+	public Member(String id, String pw, String name, String regDate) {
+		this.id = id;
+		this.pw = pw;
+		this.name = name;
+		this.regDate = regDate;
+	}
+	
 	public String getId() {
 		return this.id;
 	}
@@ -32,6 +46,14 @@ public class Member {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getRegDate() {
+		return this.regDate;
+	}
+
+	public void setRegDate(String regDate) {
+		this.regDate = regDate;
 	}
 
 	@Override

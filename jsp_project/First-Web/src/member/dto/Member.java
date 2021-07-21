@@ -1,4 +1,4 @@
-package member;
+package member.dto;
 
 // 빈즈 클래스 생성
 public class Member {

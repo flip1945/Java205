@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
-<jsp:useBean id="member" class="member.Member" scope="request"/>
+<jsp:useBean id="member" class="member.dto.Member" scope="request"/>
 <!--
 	1. request 속성에 member 라는 속성을 찾는다!
 	2. member가 member.Member 타입의 객체인지 확인!

@@ -1,14 +1,17 @@
+<%@page import="util.CookieBox"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String userId = request.getParameter("id");
-%>
+	CookieBox cBox = new CookieBox(request);
 
+	String rememId = cBox.exists("rememId") ? cBox.getValue("rememId") : "";
+	String checked = cBox.exists("rememId") ? "checked" : "";
+%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>멤버 수정 페이지</title>
+<title>멤버 로그인 페이지</title>
 <style>
 	 * {
 		margin: 0;
@@ -28,7 +31,7 @@
 		text-align: center;
 	}
 	
-	table #bnt_reset {
+	table .td_left  {
 		text-align: left;
 	}
 	
@@ -36,17 +39,17 @@
 </head>
 <body>
 	
-	<h1>멤버 리스트</h1>
+	<h1>멤버 로그인</h1>
 	<hr>
 	
-	<form action="members_Edit.jsp" method="post">
+	<form action="members_Login.jsp" method="post">
 		<table>
 			<tr>
 				<td>
 					<label for="userId"><b>ID</b></label>
 				</td>
 				<td>
-					<input type="text" name="userId" id="userId" value="<%= userId %>" readonly>
+					<input type="text" name="userId" id="userId" value="<%= rememId %>">
 				</td>
 			</tr>
 			<tr>
@@ -59,18 +62,17 @@
 			</tr>
 			<tr>
 				<td>
-					<label for="userName"><b>이름</b></label>
 				</td>
-				<td>
-					<input type="text" name="userName" id="userName">
+				<td class="td_left">
+					<input type="checkbox" name="rememId" id="rememId" value="on" <%= checked %>>
+					<label for="rememId">아이디 기억하기</label>
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="submit" value="수정">
 				</td>
-				<td id="bnt_reset">
-					<input type="reset" value="초기화">
+				<td class="td_left">
+					<input type="submit" value="로그인">
 				</td>
 			</tr>
 		</table>

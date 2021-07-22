@@ -58,6 +58,10 @@ public class Member {
 
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + "]";
+		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", regDate=" + regDate + "]";
+	}
+	
+	public LoginInfo toLoginInfo() {
+		return new LoginInfo(this.id, this.name);
 	}
 }

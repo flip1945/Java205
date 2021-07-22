@@ -49,7 +49,7 @@
 					<label for="userId"><b>ID</b></label>
 				</td>
 				<td>
-					<input type="text" name="userId">
+					<input type="text" name="userId" id="userId">
 				</td>
 			</tr>
 			<tr>
@@ -57,7 +57,7 @@
 					<label for="userPw"><b>PW</b></label>
 				</td>
 				<td>
-					<input type="password" name="userPw">
+					<input type="password" name="userPw" id="userPw">
 				</td>
 			</tr>
 			<tr>
@@ -65,7 +65,7 @@
 					<label for="userName"><b>이름</b></label>
 				</td>
 				<td>
-					<input type="text" name="userName">
+					<input type="text" name="userName" id="userName">
 				</td>
 			</tr>
 			<tr>

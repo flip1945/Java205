@@ -113,4 +113,36 @@ public class MemberDao {
 		
 		return result;
 	}
+	
+	public Member getMemberByIdPw(Connection conn, String userId, String userPw) {
+		Member member = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String sql = "select * from member where id=? and pw=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userId);
+			pstmt.setString(2, userPw);
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				member = new Member();
+				member.setId(rs.getString("id"));
+				member.setPw(rs.getString("pw"));
+				member.setName(rs.getString("name"));
+				member.setRegDate(format.format(rs.getDate("regDate")));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		return member;
+	}
 }

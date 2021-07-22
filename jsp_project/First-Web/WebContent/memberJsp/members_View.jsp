@@ -5,6 +5,8 @@
 <%
 	@SuppressWarnings("unchecked")
 	List<Member> members = (List<Member>)request.getAttribute("result");
+
+	Object login = session.getAttribute("loginInfo");
 %>
 
 <!DOCTYPE html>
@@ -41,9 +43,14 @@
 	
 	<h1>멤버 리스트</h1>
 	<hr>
-	
+	<% if (login == null) { %>
 	<button onclick="location.href='members_RegForm.jsp'">새 멤버 등록</button>
-	
+	<button onclick="location.href='members_LoginForm.jsp'">로그인</button>
+	<% } else {%>
+	<button onclick="location.href='members_Logout.jsp'">로그아웃</button>
+	<button onclick="location.href='members_Index.jsp'">회원리스트</button>
+	<% } %>
+	<button onclick="location.href='members_MyPage.jsp'">MyPage</button>
 	<table border=1>
 		<tr>
 			<th>아이디</th>

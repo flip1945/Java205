@@ -29,7 +29,7 @@ public class MemberDao {
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		
-		String sql = "select * from member order by regDate";
+		String sql = "select * from member order by regdate";
 		
 		try {
 			stmt = conn.createStatement();
@@ -38,7 +38,7 @@ public class MemberDao {
 			members = new ArrayList<Member>();
 			
 			while (rs.next()) {
-				members.add(new Member(rs.getString(1), rs.getString(2), rs.getString(3), format.format(rs.getDate(4))));
+				members.add(new Member(rs.getString("memberid"), rs.getString("password"), rs.getString("membername"), format.format(rs.getDate("regdate"))));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -54,7 +54,7 @@ public class MemberDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into member (id, pw, name) values(?, ?, ?)";
+		String sql = "insert into member (memberid, password, membername) values(?, ?, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -76,7 +76,7 @@ public class MemberDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 
-		String sql = "delete from member where id=?";
+		String sql = "delete from member where memberid=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -96,7 +96,7 @@ public class MemberDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update member set pw=?, name=? where id=?";
+		String sql = "update member set password=?, membername=? where memberid=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -121,7 +121,7 @@ public class MemberDao {
 		
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
 		
-		String sql = "select * from member where id=? and pw=?";
+		String sql = "select * from member where memberid=? and password=?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -131,10 +131,10 @@ public class MemberDao {
 			
 			if (rs.next()) {
 				member = new Member();
-				member.setId(rs.getString("id"));
-				member.setPw(rs.getString("pw"));
-				member.setName(rs.getString("name"));
-				member.setRegDate(format.format(rs.getDate("regDate")));
+				member.setId(rs.getString("memberid"));
+				member.setPw(rs.getString("password"));
+				member.setName(rs.getString("membername"));
+				member.setRegDate(format.format(rs.getDate("regdate")));
 			}
 			
 		} catch (SQLException e) {

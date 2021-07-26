@@ -9,37 +9,44 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  
   <servlet>
-  	<servlet-name>Loader</servlet-name>
-  	<servlet-class>jdbc.util.Loader</servlet-class>
-  	<load-on-startup>1</load-on-startup>
+    <servlet-name>Loader</servlet-name>
+    <servlet-class>jdbc.util.Loader</servlet-class>
+    <load-on-startup>1</load-on-startup>
   </servlet>
+  <filter>
+    <filter-name>LoginCheckFilter</filter-name>
+    <filter-class>filter.LoginCheckFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>LoginCheckFilter</filter-name>
+    <url-pattern>/member/mypage/*</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>LoginCheckFilter</filter-name>
+    <url-pattern>/jdbc/*</url-pattern>
+  </filter-mapping>
+  
+  <context-param>
+  	<param-name>jdbcdriver</param-name>
+  	<param-value>com.mysql.cj.jdbc.Driver</param-value>
+  </context-param>
+  
+  <listener>
+  	<listener-class>jdbc.util.JdbcListener</listener-class>
+  </listener>
   
   
   <error-page>
-  	<error-code>404</error-code>
-  	<location>/error/error404.jsp</location>
+    <error-code>404</error-code>
+    <location>/error/error404.jsp</location>
   </error-page>
   <error-page>
-  	<error-code>500</error-code>
-  	<location>/error/error500.jsp</location>
+    <error-code>500</error-code>
+    <location>/error/error500.jsp</location>
   </error-page>
   <error-page>
-  	<exception-type>java.lang.NullPointerException</exception-type>
-  	<location>/error/errorTypeNull.jsp</location>
+    <exception-type>java.lang.NullPointerException</exception-type>
+    <location>/error/errorTypeNull.jsp</location>
   </error-page>
-  
-  <!--
-  <servlet>
-  	  <servlet-name>nowServlet</servlet-name>
-  	  <servlet-class>firstweb.NowServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-      <servlet-name>nowServlet</servlet-name>
-      <url-pattern>/now</url-pattern>
-  </servlet-mapping>
-  -->
-  
 </web-app>

@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 
-	request.setCharacterEncoding("utf-8");
+	// request.setCharacterEncoding("utf-8");
 
 	String userName = request.getParameter("userName");
 	String job = request.getParameter("job");

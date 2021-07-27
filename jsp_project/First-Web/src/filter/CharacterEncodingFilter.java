@@ -28,14 +28,12 @@ public class CharacterEncodingFilter implements Filter {
      * Default constructor. 
      */
     public CharacterEncodingFilter() {
-        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see Filter#destroy()
 	 */
 	public void destroy() {
-		// TODO Auto-generated method stub
 	}
 
 	/**

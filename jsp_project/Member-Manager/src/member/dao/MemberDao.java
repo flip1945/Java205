@@ -5,7 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,8 +26,6 @@ public class MemberDao {
 		Statement stmt = null;
 		ResultSet rs = null;
 		
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		
 		String sql = "select * from member order by regdate";
 		
 		try {
@@ -38,7 +35,13 @@ public class MemberDao {
 			members = new ArrayList<Member>();
 			
 			while (rs.next()) {
-				members.add(new Member(rs.getString("memberid"), rs.getString("password"), rs.getString("membername"), format.format(rs.getDate("regdate"))));
+				members.add(new Member(
+						rs.getInt("idx"), 
+						rs.getString("memberid"), 
+						rs.getString("password"), 
+						rs.getString("membername"),
+						rs.getString("memberphoto"),  
+						rs.getTimestamp("regdate")));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -50,21 +53,29 @@ public class MemberDao {
 		return members;
 	}
 	
-	public int insertMember(Connection conn, Member member) {
+	public int insertMember(Connection conn, Member member) throws SQLException {
 		int result = 0;
 		PreparedStatement pstmt = null;
 
-		String sql = "insert into member (memberid, password, membername) values(?, ?, ?)";
+		String sql1 = "insert into member (memberid, password, membername) values(?, ?, ?)";
+		String sql2 = "insert into member (memberid, password, membername, memberphoto) values(?, ?, ?, ?)";
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, member.getId());
-			pstmt.setString(2, member.getPw());
-			pstmt.setString(3, member.getName());
+			
+			if (member.getMemberphoto() == null) {
+				pstmt = conn.prepareStatement(sql1);
+				pstmt.setString(1, member.getMemberid());
+				pstmt.setString(2, member.getPassword());
+				pstmt.setString(3, member.getMembername());
+			} else {
+				pstmt = conn.prepareStatement(sql2);
+				pstmt.setString(1, member.getMemberid());
+				pstmt.setString(2, member.getPassword());
+				pstmt.setString(3, member.getMembername());
+				pstmt.setString(4, member.getMemberphoto());
+			}
 			
 			result = pstmt.executeUpdate();
-		} catch (SQLException e) {
-			e.printStackTrace();
 		} finally {
 			JdbcUtil.close(pstmt);
 		}
@@ -100,9 +111,9 @@ public class MemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, member.getPw());
-			pstmt.setString(2, member.getName());
-			pstmt.setString(3, member.getId());
+			pstmt.setString(1, member.getPassword());
+			pstmt.setString(2, member.getMembername());
+			pstmt.setString(3, member.getMemberid());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -119,8 +130,6 @@ public class MemberDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-		
 		String sql = "select * from member where memberid=? and password=?";
 
 		try {
@@ -131,10 +140,12 @@ public class MemberDao {
 			
 			if (rs.next()) {
 				member = new Member();
-				member.setId(rs.getString("memberid"));
-				member.setPw(rs.getString("password"));
-				member.setName(rs.getString("membername"));
-				member.setRegDate(format.format(rs.getDate("regdate")));
+				member.setIdx(rs.getInt("idx"));
+				member.setMemberid(rs.getString("memberid"));
+				member.setPassword(rs.getString("password"));
+				member.setMembername(rs.getString("membername"));
+				member.setMemberphoto(rs.getString("memberphoto"));
+				member.setRegdate(rs.getTimestamp("regdate"));
 			}
 			
 		} catch (SQLException e) {

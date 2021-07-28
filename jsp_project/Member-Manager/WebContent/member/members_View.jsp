@@ -51,6 +51,7 @@
 	
 	<table border=1>
 		<tr>
+			<th>idx</th>
 			<th>아이디</th>
 			<th>비밀번호</th>
 			<th>이름</th>
@@ -61,13 +62,17 @@
 		<c:if test="${members != null}">
 			<c:forEach items="${members}" var="member">
 				<tr>
-					<td>${member.id}</td>
-					<td>${member.pw}</td>
-					<td>${member.name}</td>
-					<td>${member.regDate}</td>
+					<td>${member.idx}</td>
 					<td>
-						<a href="members_EditForm.jsp?id=${member.id}">수정</a>
-						<a href="javascript:delMember('${member.id}')">삭제</a>
+						<img src='<c:url value="/upload/${member.memberphoto}"/>' height="30">
+						${member.memberid}
+					</td>
+					<td>${member.password}</td>
+					<td>${member.membername}</td>
+					<td>${member.regdate}</td>
+					<td>
+						<a href="members_EditForm.jsp?id=${member.memberid}">수정</a>
+						<a href="javascript:delMember('${member.memberid}')">삭제</a>
 					</td>
 				</tr>
 			</c:forEach>

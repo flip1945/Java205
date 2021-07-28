@@ -1,67 +1,106 @@
 package member.dto;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
 // 빈즈 클래스 생성
 public class Member {
 	// 변수는 모두 private 처리
-	private String id;
-	private String pw;
-	private String name;
-	private String regDate;
-	
+	private int idx;
+	private String memberid;
+	private String password;
+	private String membername;
+	private String memberphoto;
+	private Timestamp regdate;
+
 	// beans 클래스는 기본 생성자 필수
-	public Member() {}
-	
-	public Member(String id, String pw, String name) {
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-	}
-	
-	public Member(String id, String pw, String name, String regDate) {
-		this.id = id;
-		this.pw = pw;
-		this.name = name;
-		this.regDate = regDate;
-	}
-	
-	public String getId() {
-		return this.id;
+	public Member() {
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public Member(String memberid, String password, String membername, Timestamp regdate) {
+		this.memberid = memberid;
+		this.password = password;
+		this.membername = membername;
+		this.regdate = regdate;
 	}
 
-	public String getPw() {
-		return this.pw;
+	public Member(String memberid, String password, String membername) {
+		this.memberid = memberid;
+		this.password = password;
+		this.membername = membername;
 	}
 
-	public void setPw(String pw) {
-		this.pw = pw;
+	public Member(String memberid, String password, String membername, String memberphoto) {
+		this.memberid = memberid;
+		this.password = password;
+		this.membername = membername;
+		this.memberphoto = memberphoto;
 	}
 
-	public String getName() {
-		return this.name;
+	public Member(int idx, String memberid, String password, String membername, String memberphoto, Timestamp regdate) {
+		this.idx = idx;
+		this.memberid = memberid;
+		this.password = password;
+		this.membername = membername;
+		this.memberphoto = memberphoto;
+		this.regdate = regdate;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public int getIdx() {
+		return idx;
 	}
 
-	public String getRegDate() {
-		return this.regDate;
+	public void setIdx(int idx) {
+		this.idx = idx;
 	}
 
-	public void setRegDate(String regDate) {
-		this.regDate = regDate;
+	public String getMemberid() {
+		return memberid;
+	}
+
+	public void setMemberid(String memberid) {
+		this.memberid = memberid;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getMembername() {
+		return membername;
+	}
+
+	public void setMembername(String membername) {
+		this.membername = membername;
+	}
+
+	public String getMemberphoto() {
+		return memberphoto;
+	}
+
+	public void setMemberphoto(String memberphoto) {
+		this.memberphoto = memberphoto;
+	}
+
+	public Date getRegdate() {
+		return new Date(this.regdate.getTime());
+	}
+
+	public void setRegdate(Timestamp regdate) {
+		this.regdate = regdate;
 	}
 
 	@Override
 	public String toString() {
-		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + ", regDate=" + regDate + "]";
+		return "Member [idx=" + idx + ", memberid=" + memberid + ", password=" + password + ", membername=" + membername
+				+ ", memberphoto=" + memberphoto + ", regdate=" + regdate + "]";
 	}
-	
+
 	public LoginInfo toLoginInfo() {
-		return new LoginInfo(this.id, this.name);
+		return new LoginInfo(this.idx, this.memberid, this.membername, this.memberphoto);
 	}
 }

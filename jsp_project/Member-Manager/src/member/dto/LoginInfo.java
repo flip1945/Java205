@@ -2,28 +2,37 @@ package member.dto;
 
 public class LoginInfo {
 
-	private String id;
-	private String name;
-	
-	public LoginInfo(String id, String name) {
-		this.id = id;
-		this.name = name;
+	private int idx;
+	private String memberid;
+	private String membername;
+	private String memberphoto;
+
+	public LoginInfo(int idx, String memberid, String membername, String memberphoto) {
+		this.idx = idx;
+		this.memberid = memberid;
+		this.membername = membername;
+		this.memberphoto = memberphoto;
 	}
-	public String getId() {
-		return this.id;
+
+	public int getIdx() {
+		return idx;
 	}
-	public void setId(String id) {
-		this.id = id;
+
+	public String getMemberid() {
+		return memberid;
 	}
-	public String getName() {
-		return this.name;
+
+	public String getMembername() {
+		return membername;
 	}
-	public void setName(String name) {
-		this.name = name;
+
+	public String getMemberphoto() {
+		return memberphoto;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "LoginInfo [id=" + id + ", name=" + name + "]";
+		return "LoginInfo [idx=" + idx + ", memberid=" + memberid + ", membername=" + membername + ", memberphoto="
+				+ memberphoto + "]";
 	}
 }

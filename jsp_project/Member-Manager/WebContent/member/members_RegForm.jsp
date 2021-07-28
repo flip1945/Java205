@@ -38,30 +38,38 @@
 	<h1>멤버 리스트</h1>
 	<hr>
 	
-	<form action="members_Reg.jsp" method="post">
+	<form action="members_Reg.jsp" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>
-					<label for="userId"><b>ID</b></label>
+					<label for="memberid"><b>ID</b></label>
 				</td>
 				<td>
-					<input type="text" name="userId" id="userId">
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<label for="userPw"><b>PW</b></label>
-				</td>
-				<td>
-					<input type="password" name="userPw" id="userPw">
+					<input type="text" name="memberid" id="memberid">
 				</td>
 			</tr>
 			<tr>
 				<td>
-					<label for="userName"><b>이름</b></label>
+					<label for="password"><b>PW</b></label>
 				</td>
 				<td>
-					<input type="text" name="userName" id="userName">
+					<input type="password" name="password" id="password">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="membername"><b>이름</b></label>
+				</td>
+				<td>
+					<input type="text" name="membername" id="membername">
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label for="photo"><b>사진</b></label>
+				</td>
+				<td>
+					<input type="file" name="photo" id="photo">
 				</td>
 			</tr>
 			<tr>

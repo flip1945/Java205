@@ -51,8 +51,7 @@ public class FrontController extends HttpServlet {
 			String key = (String)itr.next();
 			String value = properties.getProperty(key);
 			try {
-				Class<?> commandClass = Class.forName(value);
-				Command commandObj = (Command)commandClass.newInstance();
+				Command commandObj = (Command)Class.forName(value).newInstance();
 				commands.put(key , commandObj);
 			} catch (InstantiationException e) {
 				e.printStackTrace();

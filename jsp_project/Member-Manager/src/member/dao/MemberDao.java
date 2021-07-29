@@ -83,7 +83,7 @@ public class MemberDao {
 		return result;
 	}
 	
-	public int deleteMemberById(Connection conn, String userId) {
+	public int deleteMemberById(Connection conn, String memberId) {
 		int result = 0;
 		PreparedStatement pstmt = null;
 
@@ -91,7 +91,7 @@ public class MemberDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
+			pstmt.setString(1, memberId);
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -107,13 +107,14 @@ public class MemberDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update member set password=?, membername=? where memberid=?";
+		String sql = "update member set password=?, membername=?, memberphoto=? where memberid=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, member.getPassword());
 			pstmt.setString(2, member.getMembername());
-			pstmt.setString(3, member.getMemberid());
+			pstmt.setString(3, member.getMemberphoto());
+			pstmt.setString(4, member.getMemberid());
 			
 			result = pstmt.executeUpdate();
 		} catch (SQLException e) {
@@ -125,7 +126,7 @@ public class MemberDao {
 		return result;
 	}
 	
-	public Member getMemberByIdPw(Connection conn, String userId, String userPw) {
+	public Member getMemberByIdPw(Connection conn, String memberId, String password) {
 		Member member = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -134,8 +135,8 @@ public class MemberDao {
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, userId);
-			pstmt.setString(2, userPw);
+			pstmt.setString(1, memberId);
+			pstmt.setString(2, password);
 			rs = pstmt.executeQuery();
 			
 			if (rs.next()) {
@@ -155,5 +156,31 @@ public class MemberDao {
 			JdbcUtil.close(pstmt);
 		}
 		return member;
+	}
+
+	public int getMemberById(Connection conn, String memberId) {
+		int resultCnt = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select count(*) from member where memberid=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, memberId);
+			
+			rs = pstmt.executeQuery();
+			
+			if (rs.next()) {
+				resultCnt = rs.getInt(1);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return resultCnt;
 	}
 }

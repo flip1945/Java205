@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import member.service.Command;
-import member.service.InvalidCommandImpl;
+import member.command.Command;
+import member.command.InvalidCommandImpl;
 
 public class MemberController extends HttpServlet {
 	private static final long serialVersionUID = -4388831328668416838L;

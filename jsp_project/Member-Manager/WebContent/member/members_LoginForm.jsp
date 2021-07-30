@@ -7,14 +7,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>멤버 로그인 페이지</title>
+<link rel="stylesheet" href="<c:url value='/css/default.css'/>">
 <style>
-	 * {
-		margin: 0;
-		padding: 0;
-	}
-	
-	h1 {
-		margin: 10px;
+	h3 {
+		margin: 20px;
 	}
 	
 	table {
@@ -29,15 +25,17 @@
 	table .td_left  {
 		text-align: left;
 	}
-	
 </style>
 </head>
 <body>
+
+	<%@ include file="/WEB-INF/frame/header.jsp" %>
 	
-	<h1>멤버 로그인</h1>
 	<hr>
 	
-	<form action="members_Login.jsp" method="post">
+	<h3>멤버 로그인</h3>
+	
+	<form action="<c:url value="/member/members_Login.jsp"/>" method="post">
 		<table>
 			<tr>
 				<td>

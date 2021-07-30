@@ -8,14 +8,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>멤버 등록 페이지</title>
+<link rel="stylesheet" href="<c:url value='/css/default.css'/>">
 <style>
-	 * {
-		margin: 0;
-		padding: 0;
-	}
-	
-	h1 {
-		margin: 10px;
+	h3 {
+		margin: 20px;
 	}
 	
 	table {
@@ -46,7 +42,6 @@
 	#loadingimg {
 		height: 20px;
 	}
-	
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script>
@@ -61,7 +56,7 @@
 		
 		$('#memberid').focusout(function() {
 			$.ajax({
-				url : 'members_IdCheck.jsp',
+				url : '<c:url value="/member/members_IdCheck.jsp"/>',
 				type : 'post',
 				data : {
 					mid : $(this).val()
@@ -99,11 +94,14 @@
 </script>
 </head>
 <body>
+
+	<%@ include file="/WEB-INF/frame/header.jsp" %>
 	
-	<h1>멤버 리스트</h1>
 	<hr>
 	
-	<form action="members_Reg.jsp" method="post" enctype="multipart/form-data">
+	<h3>회원 가입</h3>
+	
+	<form action="<c:url value="/member/members_Reg.jsp"/>" method="post" enctype="multipart/form-data">
 		<table>
 			<tr>
 				<td>

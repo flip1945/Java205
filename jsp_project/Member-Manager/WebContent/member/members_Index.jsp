@@ -1,27 +1,27 @@
-<%@page import="java.sql.SQLException"%>
-<%@page import="jdbc.util.JdbcUtil"%>
-<%@page import="jdbc.util.ConnectionProvider"%>
-<%@page import="member.dao.MemberDao"%>
-<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>기본 화면</title>
+<link rel="stylesheet" href="<c:url value='/css/default.css'/>">
+<style>
+</style>
+<script>
+</script>
+</head>
+<body>
 
-<%
-	Connection conn = null;
-	MemberDao dao = null;
+<%@ include file="/WEB-INF/frame/header.jsp" %>
+<%@ include file="/WEB-INF/frame/nav.jsp" %>
+
+	<div class="contents">
 	
-	try {
-		conn = ConnectionProvider.getConnection();
-		dao = MemberDao.getInstance();
-		
-		request.setAttribute("members", dao.getMembers(conn));
-	} catch (SQLException e) {
-		e.printStackTrace();
-	} catch (Exception e) {
-		e.printStackTrace();
-	} finally {
-		JdbcUtil.close(conn);
-	}
-%>
+		<h1>Index</h1>
+	
+	</div>
 
-<jsp:forward page="members_View.jsp"/>
+</body>
+</html>

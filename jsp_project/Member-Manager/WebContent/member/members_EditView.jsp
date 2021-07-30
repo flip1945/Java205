@@ -5,7 +5,7 @@
 <c:if test="${result == 1}">
 	<script>
 		alert('수정됐습니다.');
-		location.href = '<c:url value="/member/members_Index.jsp"/>';
+		location.href = '<c:url value="/list.do"/>';
 	</script>
 </c:if>
 

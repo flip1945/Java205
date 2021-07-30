@@ -10,14 +10,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>멤버 정보 페이지</title>
+<link rel="stylesheet" href="<c:url value='/css/default.css'/>">
 <style>
 	 * {
 		margin: 0;
 		padding: 0;
 	}
 	
-	h1 {
-		margin: 10px;
+	h3 {
+		margin: 20px;
 	}
 	
 	table {
@@ -29,25 +30,14 @@
 		text-align: center;
 	}
 	
-	button {
-		margin: 10px;
-	}
-	
 </style>
 </head>
 <body>
+
+	<%@ include file="/WEB-INF/frame/header.jsp" %>
+	<%@ include file="/WEB-INF/frame/nav.jsp" %>
 	
-	<h1>멤버 리스트</h1>
-	<hr>
-	<c:if test="${loginInfo == null}">
-		<button onclick="location.href='members_RegForm.jsp'">새 멤버 등록</button>
-		<button onclick="location.href='members_LoginForm.jsp'">로그인</button>
-	</c:if>
-	<c:if test="${loginInfo != null}">
-		<button onclick="location.href='members_Logout.jsp'">로그아웃</button>
-		<button onclick="location.href='members_Index.jsp'">회원리스트</button>
-	</c:if>
-	<button onclick="location.href='members_MyPage.jsp'">MyPage</button>
+	<h3>회원 리스트</h3>
 	
 	<table border=1>
 		<tr>
@@ -71,7 +61,7 @@
 					<td>${member.membername}</td>
 					<td>${member.regdate}</td>
 					<td>
-						<a href="members_EditForm.jsp?id=${member.memberid}">수정</a>
+						<a href="<c:url value="/member/members_EditForm.jsp?id=${member.memberid}"/>">수정</a>
 						<a href="javascript:delMember('${member.memberid}')">삭제</a>
 					</td>
 				</tr>
@@ -82,7 +72,7 @@
 	<script>
 		function delMember(userId) {
 			if (confirm('정말로 삭제하시겠습니까?')) {
-				location.href = 'members_Del.jsp?id='+userId;
+				location.href = '<c:url value="/member/members_Del.jsp?id="/>'+userId;
 			}
 		}
 	</script>

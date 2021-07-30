@@ -44,4 +44,21 @@ public class Dept {
 	public String toString() {
 		return "Dept [deptno=" + deptno + ", dname=" + dname + ", loc=" + loc + "]";
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Dept) {
+			Dept dept = (Dept)obj;
+			if (this.deptno != dept.deptno) {
+				return false;
+			} else {
+				if (!this.dname.equals(dept.dname)) {
+					return false;
+				} else {
+					return this.loc.equals(dept.loc);
+				}
+			}
+		}
+		return false;
+	}
 }

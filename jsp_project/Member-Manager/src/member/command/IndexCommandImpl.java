@@ -1,13 +1,13 @@
-package member.service;
+package member.command;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class ListCommandImpl implements Command {
+public class IndexCommandImpl implements Command {
 
 	@Override
 	public String getPage(HttpServletRequest request) {
-		
-		return "/member/members_List.jsp";
+
+		return "/member/members_Index.jsp";
 	}
 
 }

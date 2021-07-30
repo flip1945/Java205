@@ -1,13 +1,13 @@
-package member.service;
+package member.command;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class DeleteCommandImpl implements Command {
+public class RegCommandImpl implements Command {
 
 	@Override
 	public String getPage(HttpServletRequest request) {
-
-		return "/member/members_Del.jsp";
+		
+		return "/member/members_RegForm.jsp";
 	}
 
 }

@@ -64,4 +64,25 @@ public class Member {
 	public LoginInfo toLoginInfo() {
 		return new LoginInfo(this.id, this.name);
 	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof Member) {
+			if (!this.id.equals(((Member)obj).id)) {
+				return false;
+			} else {
+				if (!this.pw.equals(((Member)obj).pw)) {
+					return false;
+				} else {
+					if (!this.name.equals(((Member)obj).name)) {
+						return false;
+					} else {
+						return this.regDate.equals(((Member)obj).regDate);
+					}
+				}
+			}
+		}
+		
+		return false;
+	}
 }

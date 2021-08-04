@@ -9,10 +9,10 @@
 </head>
 <body>
 
-	<h1>Sign Up</h1>
+	<h1>Member Reg Form</h1>
 	<hr>
 	
-	<form action="<c:url value="/member/members_Reg.jsp"/>" method="post" enctype="multipart/form-data">
+	<form action="<c:url value="/member/reg"/>" method="post">
 		<table>
 			<tr>
 				<td>

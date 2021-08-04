@@ -13,8 +13,9 @@
 	<hr>
 	<ul>
 		<li><a href="<c:url value='/hello'/>">/greeting</a></li>
-		<li><a href="<c:url value='/member/loginform'/>">/member/loginForm</a></li>
-		<li><a href="<c:url value='/member/memberRegForm'/>">/member/memberRegForm</a></li>
+		<li><a href="<c:url value='/member/login'/>">/member/loginForm</a></li>
+		<li><a href="<c:url value='/member/reg'/>">/member/memberRegForm</a></li>
+		<li><a href="<c:url value='/order/order'/>">/order/order</a></li>
 	</ul>
 
 </body>

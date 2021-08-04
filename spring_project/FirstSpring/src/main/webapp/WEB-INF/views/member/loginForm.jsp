@@ -12,7 +12,7 @@
 	<h1>LoginForm</h1>
 	<hr>
 	
-	<form action="<c:url value="/member/login.jsp"/>">
+	<form action="<c:url value="/member/login"/>" method="post">
 		<table>
 			<tr>
 				<td>아이디</td>

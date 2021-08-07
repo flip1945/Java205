@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bitcamp.firstSpring.member.domain.LoginInfo;
 import com.bitcamp.firstSpring.member.domain.LoginRequest;
 
 @Controller
@@ -40,6 +41,8 @@ public class LoginController {
 		
 		model.addAttribute("uid", uid);
 		model.addAttribute("upw", upw);
+		
+		request.getSession(false).setAttribute("loginInfo", new LoginInfo());
 		
 		return "member/login";
 	}

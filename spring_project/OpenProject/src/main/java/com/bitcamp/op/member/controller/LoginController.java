@@ -5,6 +5,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,7 +21,11 @@ public class LoginController {
 	LoginService loginService;
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String loginForm() {
+	public String loginForm(
+			@RequestHeader(value = "referer", required = false) String redirectUri,
+			Model model) {
+		System.out.println(redirectUri);
+		model.addAttribute("redirectUri" ,redirectUri);
 		return "member/loginForm";
 	}
 	
@@ -27,9 +33,23 @@ public class LoginController {
 	public String login(
 			@RequestParam("memberid") String memberid,
 			@RequestParam("password") String password,
+			@RequestParam(value = "redirectUri", required = false) String redirectUri,
+			@RequestParam(value = "reid", required = false) String reid,
 			HttpSession session,
-			HttpServletResponse response) {
-		return "member/login";
+			HttpServletResponse response,
+			Model model) {
+		
+		boolean loginChk = loginService.login(memberid, password, reid, session, response);
+		model.addAttribute("loginChk", loginChk);
+		
+		String view = "member/login";
+		System.out.println(redirectUri);
+		
+		if (redirectUri != null && loginChk) {
+			view = "redirect:"+redirectUri;
+		}
+		
+		return view;
 	}
 	
 }

@@ -15,7 +15,7 @@
 	<%@ include file="/WEB-INF/views/frame/nav.jsp" %>
 	
 	<div>
-		<h1>Content : Index</h1>
+		<h1 id="content">Content : Index</h1>
 	</div>
 
 </body>

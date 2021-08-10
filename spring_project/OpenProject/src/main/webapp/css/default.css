@@ -53,3 +53,19 @@ hr {
 td {
 	padding: 5px;
 }
+
+#loadingimg {
+	height: 20px;
+}
+
+.display_none {
+	display: none;
+}
+
+.color_blue {
+	color: blue;
+}
+
+.color_red {
+	color: red;
+}

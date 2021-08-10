@@ -14,4 +14,9 @@ public class IndexController {
 	public String index1() {
 		return "redirect:/index";
 	}
+	
+	@RequestMapping("/WEB-INF/views/**")
+	public String index2() {
+		return "redirect:/index";
+	}
 }

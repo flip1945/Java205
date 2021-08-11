@@ -49,7 +49,7 @@ public class MemberRegRequest {
 
 	// MemberRegRequest -> Member
 	public Member toMember() {
-		return new Member(0, memberid, password, membername, photo.getOriginalFilename(), null);
+		return new Member(0, memberid, password, membername, null, null);
 	}
 
 }

@@ -2,14 +2,14 @@ package com.bitcamp.op.member.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
+import com.bitcamp.op.member.dao.Dao;
 import com.bitcamp.op.member.domain.Member;
 import com.bitcamp.op.member.domain.MemberRegRequest;
 
@@ -19,7 +19,8 @@ public class MemberRegService {
 	final String UPLOAD_URI = "uploadfile";
 	
 	@Autowired
-	private JdbcTemplateMemberDao dao;
+	private SqlSessionTemplate template;
+	private Dao dao;
 	
 	public int memberReg(
 			MemberRegRequest regRequest,
@@ -50,15 +51,16 @@ public class MemberRegService {
 				member.setMemberphoto("photo.png");
 			}
 			
+			dao = template.getMapper(Dao.class);
 			resultCnt = dao.insertMember(member);
 			
 		} catch (IllegalStateException | IOException e) {
 			e.printStackTrace();
-		} catch (SQLException e) {
-			if(newFile != null && newFile.exists() ) {
-				newFile.delete();
-			}
-			e.printStackTrace();
+//		} catch (SQLException e) {
+//			if(newFile != null && newFile.exists() ) {
+//				newFile.delete();
+//			}
+//			e.printStackTrace();
 		}
 		
 		return resultCnt;

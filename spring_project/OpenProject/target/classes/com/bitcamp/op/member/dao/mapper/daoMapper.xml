@@ -3,6 +3,16 @@
 
 <mapper namespace="com.bitcamp.op.member.dao.Dao">
 
+	<resultMap id="memberListResult"
+			   type="com.bitcamp.op.member.domain.Member">
+		<id column="idx" property="idx"/>
+		<result column="memberid" property="memberid"/>
+		<result column="membername" property="membername"/>
+		<!-- <result column="password" property="password"/> -->
+		<result column="memberphoto" property="memberphoto"/>
+		<result column="regdate" property="regdate"/>
+	</resultMap>
+
 	<select id="selectByIdPw"
 			resultType="com.bitcamp.op.member.domain.Member">
 		select * from member where memberid=#{param1} and password=#{param2}
@@ -14,7 +24,7 @@
 	</select>
 	
 	<select id="selectAll"
-			resultType="com.bitcamp.op.member.domain.Member">
+			resultMap="memberListResult">
 		select * from member order by memberid
 	</select>
 	

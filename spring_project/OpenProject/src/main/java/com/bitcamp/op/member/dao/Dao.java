@@ -3,6 +3,7 @@ package com.bitcamp.op.member.dao;
 import java.util.List;
 
 import com.bitcamp.op.member.domain.Member;
+import com.bitcamp.op.member.domain.SearchType;
 
 public interface Dao {
 
@@ -15,4 +16,7 @@ public interface Dao {
 	public List<Member> selectAll();
 	public List<Member> selectList(int startRow, int count);
 	public int selectTotalCount();
+	public List<Member> selectMember(SearchType searchType);
+	
+	public Member selectByIdx(int idx);
 }

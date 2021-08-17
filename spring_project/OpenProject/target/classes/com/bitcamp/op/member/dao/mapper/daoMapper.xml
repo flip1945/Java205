@@ -23,9 +23,14 @@
 		select count(*) from member where memberid=#{param1}
 	</select>
 	
+	<select id="selectByIdx"
+			resultType="com.bitcamp.op.member.domain.Member">
+		select * from member where idx=#{idx}
+	</select>
+	
 	<select id="selectAll"
 			resultMap="memberListResult">
-		select * from member order by memberid
+		select * from member order by idx
 	</select>
 	
 	<select id="selectList"

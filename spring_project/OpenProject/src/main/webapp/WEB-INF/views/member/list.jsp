@@ -13,14 +13,14 @@
 </head>
 <body>
 
-	<%@ include file="/WEB-INF/views/frame/header.jsp"%>
-	<%@ include file="/WEB-INF/views/frame/nav.jsp"%>
-
-	<div id="content">
-		<h2>회원 리스트</h2>
+	<%@ include file="/WEB-INF/views/frame/bootstrap_header.jsp"%>
+	
+	<main role="main" class="container">
+	  <div class="my-3 p-3 bg-white rounded shadow-sm">
+	    <h2>회원 리스트</h2>
 		<hr>
 
-		<table class="border">
+		<table class="table">
 			<tr>
 				<th>IDX</th>
 				<th>아이디</th>
@@ -40,15 +40,16 @@
 				<td>${member.memberphoto}</td>
 				<td><fmt:formatDate value="${member.date}" type="both"/></td>
 				<td>
-					<a class="border" href="edit?idx=${member.idx}">수정</a> 
-					<a class="border" href="delete?idx=${member.idx}">삭제</a>
+					<a class="btn btn-outline-primary" href="edit?idx=${member.idx}">수정</a> 
+					<a class="btn btn-outline-danger" href="delete?idx=${member.idx}">삭제</a>
 				</td>
 			</tr>
 			</c:forEach>
 		</table>
-
-
-	</div>
+	  </div>
+	</main>
+	
+	<%@ include file="/WEB-INF/views/frame/footer.jsp" %> 
 
 </body>
 </html>

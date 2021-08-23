@@ -10,13 +10,12 @@ public class IndexController {
 	public void index() {
 	}
 	
-	@RequestMapping("/")
-	public String index1() {
-		return "redirect:/index";
+	@RequestMapping("/index2")
+	public void index2() {
 	}
 	
-	@RequestMapping("/WEB-INF/views/**")
-	public String index2() {
+	@RequestMapping("/")
+	public String index1() {
 		return "redirect:/index";
 	}
 }

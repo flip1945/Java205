@@ -39,6 +39,10 @@
             font-size: 15px;
         }
 
+        .text-16 {
+            font-size: 16px;
+        }
+
         .text-18 {
             font-size: 18px;
         }
@@ -84,8 +88,15 @@
             object-fit: cover;
         }
 
-        @media (max-width: 990px) {
+        #sideBar {
+            display: block;
+        }
 
+        #scrollableNavBar {
+            display: none;
+        }
+
+        @media (max-width: 992px) {
             #sideBar {
                 display: none;
             }
@@ -98,13 +109,15 @@
             }
         }
 
-        @media (min-width: 990px) {
-            #sideBar {
-                display: block;
+        @media (max-width: 768px) {
+            .profileContent {
+                font-size: 18px;
             }
+        }
 
-            #scrollableNavBar {
-                display: none;
+        @media (max-width: 576px) {
+            .profileContent {
+                font-size: 16px;
             }
         }
     </style>
@@ -186,7 +199,9 @@
     <div id="scrollableNavBar">
         <div class="row justify-content-between mb-5 pb-5">
             <div class="col text-center text-14">
-                <a href="#" class="link-unstyle">주문 내역</a>
+                <a href="#" class="link-unstyle">
+                    <span class="pb-1 border-bottom border-sinchon text-sinchon">주문 내역</span>
+                </a>
             </div>
             <div class="col text-center text-14">
                 <a href="#" class="link-unstyle">예약 내역</a>
@@ -202,7 +217,7 @@
     </div>
 
     <div class="container">
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-sm-2" id="sideBar">
                 <ul class="text-14 list-unstyled" id="sideBar">
                     <li class="mb-4">
@@ -224,15 +239,15 @@
 
             <div class="col-lg-10 pb-5">
                 <div class="profile border border-sinchon">
-                    <div class="row p-5">
-                        <div class="col-2">
+                    <div class="row p-5 justify-content-center">
+                        <div class="col-2 d-none d-lg-block">
                             <div class="mt-2">
                                 <img id="profileImage" src="images/lake.jpeg" alt="프로필 사진" class="rounded-circle">
                             </div>
                         </div>
 
                         <div class="col-7 border-right">
-                            <div class="text-22 font-weight-bold mb-2">
+                            <div class="text-22 font-weight-bold mb-2 profileContent">
                                 <span class="text-sinchon font-weight-bold">일반</span> 채호연 님 안녕하세요.
                             </div>
                             <div class="text-15 mb-2">
